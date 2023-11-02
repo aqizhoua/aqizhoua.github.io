@@ -23,19 +23,18 @@
   <meta name="description" content="1.协方差定义X、Y是两个随机变量，X、Y的协方差cov(X,Y)定义为： $$cov(X,Y)&#x3D;E[(x-\mu(x))(Y-\mu(y))]$$ 其中$E(x)&#x3D;\mu(x)$ 2.协方差矩阵定义矩阵中的数据按行排列和按列排列求出的协方差矩阵是不同的，这里默认是按行排列，即每一行是一个sample，那么每一列就是一个随机变量。 $$X_(m*n)&#x3D;\begin{b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="协方差矩阵">
-<meta property="og:url" content="https://aqizhoua.github.io/poster/8870746f.html">
+<meta property="og:url" content="https://aqizhoua.github.io/poster/c8458820.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.协方差定义X、Y是两个随机变量，X、Y的协方差cov(X,Y)定义为： $$cov(X,Y)&#x3D;E[(x-\mu(x))(Y-\mu(y))]$$ 其中$E(x)&#x3D;\mu(x)$ 2.协方差矩阵定义矩阵中的数据按行排列和按列排列求出的协方差矩阵是不同的，这里默认是按行排列，即每一行是一个sample，那么每一列就是一个随机变量。 $$X_(m*n)&#x3D;\begin{b">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://aqizhoua.github.io/poster/8870746f.htm/hexo/source_posts/1.png">
-<meta property="og:image" content="https://aqizhoua.github.io/poster/8870746f.htm/hexo/source_posts/2.png">
-<meta property="og:image" content="https://aqizhoua.github.io/poster/8870746f.htm/hexo/source_posts/3.png">
-<meta property="article:published_time" content="2023-11-02T14:38:13.000Z">
-<meta property="article:modified_time" content="2023-11-02T16:08:35.129Z">
+<meta property="og:image" content="https://aqizhoua.github.io/poster/c8458820.htm/%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%5C1.png">
+<meta property="og:image" content="https://aqizhoua.github.io/poster/c8458820.htm/%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%5C2.png">
+<meta property="og:image" content="https://aqizhoua.github.io/poster/c8458820.htm/%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%5C3.png">
+<meta property="article:published_time" content="2023-11-02T16:14:40.000Z">
+<meta property="article:modified_time" content="2023-11-02T16:16:07.157Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="数学知识">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://aqizhoua.github.io/poster/8870746f.htm/hexo/source_posts/1.png">
+<meta name="twitter:image" content="https://aqizhoua.github.io/poster/c8458820.htm/%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%5C1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -164,7 +163,7 @@
        
 
 
-<article id="post-covariance_matrix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-协方差矩阵" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -185,7 +184,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2023-11-02T14:38:13.000Z" itemprop="datePublished">2023-11-02</time>
+  <time class="dt-published" datetime="2023-11-02T16:14:40.000Z" itemprop="datePublished">2023-11-03</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -200,8 +199,6 @@
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" rel="tag">数学知识</a></li></ul>
-
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
@@ -256,11 +253,11 @@
 <p>以$\sum_{2,3}$举例：</p>
 <p>$$\sum_{2,3}&#x3D;\frac{(每2列-每2列的均值)<em>(每3列-每3列的均值)}{样本数-1}&#x3D;(-1,1,0)</em>(1.33,-0.67,-0.67)^{T}&#x3D;-1$$</p>
 <h1 id="4-协方差代表的意义"><a href="#4-协方差代表的意义" class="headerlink" title="4.协方差代表的意义"></a>4.协方差代表的意义</h1><p>在概率论中，两个随机变量 X 与 Y 之间相互关系，大致有下列3种情况：</p>
-<p><img src="/poster/8870746f.htm/hexo\source_posts\1.png" alt="image-20231103000015908"></p>
+<p><img src="/poster/c8458820.htm/%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%5C1.png" alt="image-20231103000015908"></p>
 <p>情况一,如上, 当 X, Y 的联合分布像上图那样时，我们可以看出，大致上有： X 越大  Y 也越大， X 越小  Y 也越小，这种情况，我们称为“<strong>正相关</strong>”。</p>
-<p><img src="/poster/8870746f.htm/hexo\source_posts\2.png" alt="image-20231103000053180"></p>
+<p><img src="/poster/c8458820.htm/%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%5C2.png" alt="image-20231103000053180"></p>
 <p>情况二, 如上图, 当X, Y 的联合分布像上图那样时，我们可以看出，大致上有：X 越大Y 反而越小，X 越小 Y 反而越大，这种情况，我们称为“<strong>负相关</strong>”。</p>
-<p><img src="/poster/8870746f.htm/hexo\source_posts\3.png" alt="image-20231103000115383"></p>
+<p><img src="/poster/c8458820.htm/%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%5C3.png" alt="image-20231103000115383"></p>
 <p>情况三,如上图, 当X, Y  的联合分布像上图那样时，我们可以看出：既不是X  越大Y 也越大，也不是 X 越大 Y 反而越小，这种情况我们称为“<strong>不相关</strong>”。</p>
 <hr>
 <p><strong>怎样将这3种相关情况，用一个简单的数字表达出来呢？</strong></p>
@@ -289,22 +286,22 @@
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/poster/c8458820.html"
-      title="协方差矩阵"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        协方差矩阵
         
     </p>
   </a>
-  <a class="article-nav-btn right  disabled "
+  <a class="article-nav-btn right "
+    
+      href="/poster/8870746f.html"
+      title="协方差矩阵"
      >
 
     <p class="title-text">
+      
+        协方差矩阵
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
