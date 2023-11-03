@@ -414,14 +414,14 @@ latex 矩阵MarkDown写矩阵 - 简书 (jianshu.com)
 
 
 所以，按照定义，给定的4个二维样本的协方差矩阵为：
-$\sum=\begin{pmatrix}
-8.75 &amp; -1  \-1 &amp; 12
-\end{pmatrix}$
+
 用matlab计算这个例子：
 z=[1,2;3,6;4,2;5,2]
 cov(z)
 ans=
-2.9167 ...
+
+可以看出，matlab计算协方差过程中还将元素统一缩小了3倍。所以，协方差的matlab计算公式为：
+协方差(i,j)=（每i列的所有元素-...
             
           </div>
         
@@ -487,5 +487,20 @@ ans=
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
