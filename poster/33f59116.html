@@ -120,6 +120,8 @@
   <div class="info-card">
     <div class="avatar">
       
+        <image src=/%E5%A4%B4%E5%83%8F.jpg></image>
+      
       <div class="img-dim"></div>
     </div>
     <div class="info">
@@ -293,26 +295,21 @@
 </article>
 
 
-
-
-  <script src="https://cdn.staticfile.org/twikoo/1.6.21/twikoo.all.min.js"></script>
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <div id="comment-card" class="comment-card">
     <div class="main-title-bar">
       <div class="main-title-dot"></div>
       <div class="main-title">Comments </div>
     </div>
-    <div id="tcomment"></div>
+    <div id="vcomments"></div>
   </div>
   <script>
-      twikoo.init({
-          envId: '',
-          el: '#tcomment',
-          region: '',
-          path: 'location.pathname',
-          lang: '',
-      })
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
   </script>
-  
+
+
+
     </div>
     <div id="footer-wrapper">
       <footer id="footer">
