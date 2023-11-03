@@ -388,7 +388,8 @@ latex 矩阵MarkDown写矩阵 - 简书 (jianshu.com)
           <div class="truncate-text">
             
               1.协方差定义X、Y是两个随机变量，X、Y的协方差cov(X,Y)定义为：
-cov(X,Y)=E[(x-\mu(x))(Y-\mu(y))]其中
+
+其中
 2.协方差矩阵定义矩阵中的数据按行排列和按列排列求出的协方差矩阵是不同的，这里默认是按行排列，即每一行是一个sample，那么每一列就是一个随机变量。
 
 协方差矩阵：
@@ -417,7 +418,10 @@ $\sum=\begin{pmatrix}
 8.75 &amp; -1  \-1 &amp; 12
 \end{pmatrix}$
 用matlab计算这个例子：
-z=[1,2;3...
+z=[1,2;3,6;4,2;5,2]
+cov(z)
+ans=
+2.9167 ...
             
           </div>
         
@@ -483,20 +487,5 @@ z=[1,2;3...
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
