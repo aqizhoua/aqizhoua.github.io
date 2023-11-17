@@ -20,18 +20,20 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="DeepSort学习博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaoBBNuanMM&#x2F;article&#x2F;details&#x2F;85555547">
+  <meta name="description" content="DeepSort马氏距离https:&#x2F;&#x2F;blog.csdn.net&#x2F;lzhf1122&#x2F;article&#x2F;details&#x2F;72935323 余弦相似度 学习博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;sgfmby1994&#x2F;article&#x2F;details&#x2F;98517210 https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaoBBNuanMM&#x2F;article&#x2F;details&#x2F;85555547 https">
 <meta property="og:type" content="article">
 <meta property="og:title" content="deepsort学习">
 <meta property="og:url" content="https://aqizhoua.github.io/poster/9a3712c2.html">
 <meta property="og:site_name" content="aqizhoua">
-<meta property="og:description" content="DeepSort学习博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaoBBNuanMM&#x2F;article&#x2F;details&#x2F;85555547">
+<meta property="og:description" content="DeepSort马氏距离https:&#x2F;&#x2F;blog.csdn.net&#x2F;lzhf1122&#x2F;article&#x2F;details&#x2F;72935323 余弦相似度 学习博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;sgfmby1994&#x2F;article&#x2F;details&#x2F;98517210 https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaoBBNuanMM&#x2F;article&#x2F;details&#x2F;85555547 https">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://aqizhoua.github.io/poster/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6.png">
 <meta property="article:published_time" content="2023-11-04T11:06:24.000Z">
-<meta property="article:modified_time" content="2023-11-04T11:07:54.520Z">
+<meta property="article:modified_time" content="2023-11-13T11:35:59.020Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="MOT">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aqizhoua.github.io/poster/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6.png">
   
   
     <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
@@ -250,7 +252,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            70 words 
+            655 words 
           </div>
         </div>
         
@@ -259,7 +261,16 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="DeepSort"><a href="#DeepSort" class="headerlink" title="DeepSort"></a>DeepSort</h1><h2 id="学习博客"><a href="#学习博客" class="headerlink" title="学习博客"></a>学习博客</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/HaoBBNuanMM/article/details/85555547">https://blog.csdn.net/HaoBBNuanMM/article/details/85555547</a></p>
+          <h1 id="DeepSort"><a href="#DeepSort" class="headerlink" title="DeepSort"></a>DeepSort</h1><h2 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lzhf1122/article/details/72935323">https://blog.csdn.net/lzhf1122/article/details/72935323</a></p>
+<h2 id="余弦相似度"><a href="#余弦相似度" class="headerlink" title="余弦相似度"></a>余弦相似度</h2><p><img src="余弦相似度.png" alt></p>
+<h2 id="学习博客"><a href="#学习博客" class="headerlink" title="学习博客"></a>学习博客</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sgfmby1994/article/details/98517210">https://blog.csdn.net/sgfmby1994/article/details/98517210</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/HaoBBNuanMM/article/details/85555547">https://blog.csdn.net/HaoBBNuanMM/article/details/85555547</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42779673/article/details/116950649">https://blog.csdn.net/qq_42779673/article/details/116950649</a></p>
+<h2 id="级联匹配-match-cascade"><a href="#级联匹配-match-cascade" class="headerlink" title="级联匹配(match cascade)"></a>级联匹配(match cascade)</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zjc910997316/article/details/83721573">https://blog.csdn.net/zjc910997316/article/details/83721573</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lzzzzzzm/article/details/122766178">https://blog.csdn.net/lzzzzzzm/article/details/122766178</a></p>
+<p>观测状态的定义：在Sort中，当卡尔曼滤波检测到结果，立即会将结果进行跟新，也即去和检测框进行IOU匹配。而在Deepsort中，我们把检测到的结果分为确定态和非确定态，初始时均为非确定态，只有连续3帧的匹配上（这里的匹配，和Sort中的直接IOU匹配类似）才能转为确定态，而转为确定态的预测结果，则会和检测框进行Matching Cascade-级联匹配。这一步的改变，我认为是DeepSort中优越与Sort的重要因素。</p>
+<hr>
+<h2 id="代码学习"><a href="#代码学习" class="headerlink" title="代码学习"></a>代码学习</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sgfmby1994/article/details/98517210">https://blog.csdn.net/sgfmby1994/article/details/98517210</a></p>
 
         
       </div>
