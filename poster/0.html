@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>aqizhoua</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="在网上看了不少与卡尔曼滤波相关的博客、论文，要么是只谈理论、缺乏感性，或者有感性认识，缺乏理论推导。能兼顾二者的少之又少，直到我看到了国外的一篇博文，真的惊艳到我了，不得不佩服作者这种细致入微的精神，翻译过来跟大家分享一下。 原文链接http:&#x2F;&#x2F;www.bzarg.com&#x2F;p&#x2F;how-a-kalman-filter-works-in-pictures&#x2F; 　　我不得不说说卡尔曼滤波，因为它能做到的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="aqizhoua">
+<meta property="og:url" content="https://aqizhoua.github.io/poster/0.html">
+<meta property="og:site_name" content="aqizhoua">
+<meta property="og:description" content="在网上看了不少与卡尔曼滤波相关的博客、论文，要么是只谈理论、缺乏感性，或者有感性认识，缺乏理论推导。能兼顾二者的少之又少，直到我看到了国外的一篇博文，真的惊艳到我了，不得不佩服作者这种细致入微的精神，翻译过来跟大家分享一下。 原文链接http:&#x2F;&#x2F;www.bzarg.com&#x2F;p&#x2F;how-a-kalman-filter-works-in-pictures&#x2F; 　　我不得不说说卡尔曼滤波，因为它能做到的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.bzarg.com/wp-content/uploads/2015/08/robot_forest-300x160.png">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7Bx_%7Bk%7D%7D">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7Bx_%7Bk%7D%7D=%28%5Coverrightarrow%7Bp%7D,%5Coverrightarrow%7Bv%7D%29">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/robot_ohnoes-300x283.png">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7Bx%7D=%5Cbegin%7Bbmatrix%7D%20p%5C%5C%20v%20%5Cend%7Bbmatrix%7D">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_0.png">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Csigma%20%5E%7B2%7D">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_1.png">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_3.png">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5CSigma%20_%7Bij%7D">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5CSigma">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5CSigma%20_%7Bij%7D">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_2.png">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Cwidehat%7Bx_%7Bk%7D%7D">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?P_%7Bk%7D">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Cwidehat%7Bx_%7Bk%7D%7D=%5Cbegin%7Bbmatrix%7D%20position%5C%5C%20velocity%20%5Cend%7Bbmatrix%7D,%20P_%7Bk%7D=%5Cbegin%7Bbmatrix%7D%20%5CSigma_%7Bpp%7D%20&amp;%20%5CSigma_%7Bpv%7D%5C%5C%20%5CSigma_%7Bvp%7D%20&amp;%20%5CSigma_%7Bvv%7D%20%5Cend%7Bbmatrix%7D">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_7.jpg">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?F_%7Bk%7D">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_8.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318160856125">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5CSigma">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318162124709">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318162254991">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318163302455">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318163505685">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318163854667">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318164253765">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Cmathbf%7BB_%7Bk%7D%7D">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318163302455">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_9.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318165227537">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318165322490">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318165322490">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_10a.jpg">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_10b.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318165322490">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318165745458">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318171505345">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318171548685">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_12-624x287.jpg">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?H_%7Bk%7D">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_13.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318172335210">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_14.jpg">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_11.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318172822961">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318172849422">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_4.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318173344804">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_6a.png">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_6.png">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Csigma%20%5E%7B2%7D">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318173755919">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318174028764">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318174130470">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318174340672">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7B%5Cmu%20%7D">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318174609454">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318174848589">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318175003185">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318175025998">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318175116426">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318175157766">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318174848589">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?H_%7Bk%7D">
+<meta property="og:image" content="http://latex.codecogs.com/png.latex?H_%7Bk%7D%5E%7BT%7D">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318175537505">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318175636365">
+<meta property="og:image" content="https://img-blog.csdn.net/20170318175649850">
+<meta property="og:image" content="http://www.bzarg.com/wp-content/uploads/2015/08/kalflow.png">
+<meta property="article:published_time" content="2024-01-13T15:15:08.577Z">
+<meta property="article:modified_time" content="2024-01-13T15:15:08.577Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.bzarg.com/wp-content/uploads/2015/08/robot_forest-300x160.png">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>aqizhoua </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/fanren">Fanren</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/fanren">Fanren</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/sleep.jpg></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">aqizhoua </div>
+      <div class="dot"></div>
+      <div class="subtitle">人生是旷野 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/aqizhoua" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box"></div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Tags</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/MOT/" rel="tag">MOT</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/smtp/" rel="tag">smtp</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A5/" rel="tag">书生浦语大模型实战营</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" rel="tag">数学知识</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Archives</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          January 2024 
+          <div class="archive-count">6 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/11 ">
+          November 2023 
+          <div class="archive-count">5 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul>
+        
+          <a class="recent-link" href="/poster/5b298b12.html" title="卡尔曼滤波器" >
+            <div class="recent-link-text">
+              卡尔曼滤波器
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/0.html" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/439d054d.html" title="2182.构造限制重复的字符串" >
+            <div class="recent-link-text">
+              2182.构造限制重复的字符串
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/280c916a.html" title="lesson2作业" >
+            <div class="recent-link-text">
+              lesson2作业
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/89484759.html" title="lesson2_试试demo" >
+            <div class="recent-link-text">
+              lesson2_试试demo
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-卡尔曼滤波" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        Untitled
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-01-13T15:15:08.577Z" itemprop="datePublished">2024-01-13</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    Uncategorized 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.1k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>在网上看了不少与卡尔曼滤波相关的博客、论文，要么是只谈理论、缺乏感性，或者有感性认识，缺乏理论推导。能兼顾二者的少之又少，直到我看到了国外的一篇博文，真的惊艳到我了，不得不佩服作者这种细致入微的精神，翻译过来跟大家分享一下。</p>
+<h4 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h4><p><a target="_blank" rel="noopener" href="http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/">http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/</a></p>
+<p>　　我不得不说说卡尔曼滤波，因为它能做到的事情简直让人惊叹！意外的是很少有软件工程师和科学家对对它有所了解，这让我感到沮丧，因为卡尔曼滤波是一个如此强大的工具，能够在不确定性中融合信息，与此同时，它提取精确信息的能力看起来不可思议。</p>
+<h4 id="什么是卡尔曼滤波？"><a href="#什么是卡尔曼滤波？" class="headerlink" title="什么是卡尔曼滤波？"></a>什么是卡尔曼滤波？</h4><p>　　你可以在任何含有不确定信息的动态系统中使用卡尔曼滤波，对系统下一步的走向做出有根据的预测，即使伴随着各种干扰，卡尔曼滤波总是能指出真实发生的情况。<br>　　在连续变化的系统中使用卡尔曼滤波是非常理想的，它具有占用内存小的优点（除了前一个状态量外，不需要保留其它历史数据），并且速度很快，很适合应用于实时问题和嵌入式系统。<br>　　在Google上找到的大多数关于实现卡尔曼滤波的数学公式看起来有点晦涩难懂，这个状况有点糟糕。实际上，如果以正确的方式看待它，卡尔曼滤波是非常简单和容易理解的，下面我将用漂亮的图片和色彩清晰的阐述它，你只需要懂一些基本的概率和矩阵的知识就可以了。</p>
+<h4 id="我们能用卡尔曼滤波做什么？"><a href="#我们能用卡尔曼滤波做什么？" class="headerlink" title="我们能用卡尔曼滤波做什么？"></a>我们能用卡尔曼滤波做什么？</h4><p>　　用玩具举例：你开发了一个可以在树林里到处跑的小机器人，这个机器人需要知道它所在的确切位置才能导航。</p>
+<p><img src="https://www.bzarg.com/wp-content/uploads/2015/08/robot_forest-300x160.png" alt="这里写图片描述"></p>
+<p>　　我们可以说机器人有一个状态 <img src="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7Bx_%7Bk%7D%7D" alt="这里写图片描述">，表示位置和速度：</p>
+<p><img src="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7Bx_%7Bk%7D%7D=%28%5Coverrightarrow%7Bp%7D,%5Coverrightarrow%7Bv%7D%29" alt="这里写图片描述"></p>
+<p>　　注意这个状态只是关于这个系统基本属性的一堆数字，它可以是任何其它的东西。在这个例子中是位置和速度，它也可以是一个容器中液体的总量，汽车发动机的温度，用户手指在触摸板上的位置坐标，或者任何你需要跟踪的信号。<br>　　这个机器人带有GPS，精度大约为10米，还算不错，但是，它需要将自己的位置精确到10米以内。树林里有很多沟壑和悬崖，如果机器人走错了一步，就有可能掉下悬崖，所以只有GPS是不够的。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/robot_ohnoes-300x283.png" alt="这里写图片描述"></p>
+<p>　　或许我们知道一些机器人如何运动的信息：例如，机器人知道发送给电机的指令，知道自己是否在朝一个方向移动并且没有人干预，在下一个状态，机器人很可能朝着相同的方向移动。当然，机器人对自己的运动是一无所知的：它可能受到风吹的影响，轮子方向偏了一点，或者遇到不平的地面而翻倒。所以，轮子转过的长度并不能精确表示机器人实际行走的距离，预测也不是很完美。<br>　　GPS 传感器告诉了我们一些状态信息，我们的预测告诉了我们机器人会怎样运动，但都只是间接的，并且伴随着一些不确定和不准确性。但是，如果使用所有对我们可用的信息，我们能得到一个比任何依据自身估计更好的结果吗？回答当然是YES，这就是卡尔曼滤波的用处。</p>
+<h4 id="卡尔曼滤波是如何看到你的问题的"><a href="#卡尔曼滤波是如何看到你的问题的" class="headerlink" title="卡尔曼滤波是如何看到你的问题的"></a>卡尔曼滤波是如何看到你的问题的</h4><p>　　下面我们继续以只有位置和速度这两个状态的简单例子做解释。</p>
+<p><img src="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7Bx%7D=%5Cbegin%7Bbmatrix%7D%20p%5C%5C%20v%20%5Cend%7Bbmatrix%7D" alt="这里写图片描述"></p>
+<p>　　我们并不知道实际的位置和速度，它们之间有很多种可能正确的组合，但其中一些的可能性要大于其它部分：</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_0.png" alt="img"></p>
+<p>　　卡尔曼滤波假设两个变量（位置和速度，在这个例子中）都是随机的，并且<em>服从高斯分布</em>。每个变量都有一个均值 μ，表示随机分布的中心（最可能的状态），以及方差 <img src="http://latex.codecogs.com/png.latex?%5Csigma%20%5E%7B2%7D" alt="这里写图片描述">，表示不确定性。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_1.png" alt="img"></p>
+<p>　　在上图中，位置和速度是不相关的，这意味着由其中一个变量的状态无法推测出另一个变量可能的值。下面的例子更有趣：位置和速度是相关的，观测特定位置的可能性取决于当前的速度：</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_3.png" alt="img"></p>
+<p>　　这种情况是有可能发生的，例如，我们基于旧的位置来估计新位置。如果速度过高，我们可能已经移动很远了。如果缓慢移动，则距离不会很远。跟踪这种关系是非常重要的，因为它带给我们更多的信息：其中一个测量值告诉了我们其它变量可能的值，这就是卡尔曼滤波的目的，尽可能地在包含不确定性的测量数据中提取更多信息！<br>　　这种相关性用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Covariance_matrix">协方差矩阵</a>来表示，简而言之，矩阵中的每个元素 <img src="http://latex.codecogs.com/png.latex?%5CSigma%20_%7Bij%7D" alt="这里写图片描述"> 表示第 i 个和第 j 个状态变量之间的相关度。（你可能已经猜到协方差矩阵是一个<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Symmetric_matrix">对称矩阵</a>，这意味着可以任意交换 i 和 j）。协方差矩阵通常用“<img src="http://latex.codecogs.com/png.latex?%5CSigma" alt="这里写图片描述">”来表示，其中的元素则表示为“<img src="http://latex.codecogs.com/png.latex?%5CSigma%20_%7Bij%7D" alt="这里写图片描述"> ”。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_2.png" alt="img"></p>
+<h4 id="使用矩阵来描述问题"><a href="#使用矩阵来描述问题" class="headerlink" title="使用矩阵来描述问题"></a>使用矩阵来描述问题</h4><p>　　我们基于高斯分布来建立状态变量，所以在时刻 k 需要两个信息：最佳估计 <img src="http://latex.codecogs.com/png.latex?%5Cwidehat%7Bx_%7Bk%7D%7D" alt="这里写图片描述">（即均值，其它地方常用 μ 表示），以及协方差矩阵 <img src="http://latex.codecogs.com/png.latex?P_%7Bk%7D" alt="这里写图片描述"> 。</p>
+<p><img src="http://latex.codecogs.com/png.latex?%5Cwidehat%7Bx_%7Bk%7D%7D=%5Cbegin%7Bbmatrix%7D%20position%5C%5C%20velocity%20%5Cend%7Bbmatrix%7D,%20P_%7Bk%7D=%5Cbegin%7Bbmatrix%7D%20%5CSigma_%7Bpp%7D%20&amp;%20%5CSigma_%7Bpv%7D%5C%5C%20%5CSigma_%7Bvp%7D%20&amp;%20%5CSigma_%7Bvv%7D%20%5Cend%7Bbmatrix%7D" alt="这里写图片描述">　　　　　　　　(1)</p>
+<p>　　（当然，在这里我们只用到了位置和速度，实际上这个状态可以包含多个变量，代表任何你想表示的信息）。接下来，我们需要根据当前状态（k-1 时刻）来预测下一状态（k 时刻）。记住，我们并不知道对下一状态的所有预测中哪个是“真实”的，但我们的预测函数并不在乎。它对所有的可能性进行预测，并给出新的高斯分布。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_7.jpg" alt="img"></p>
+<p>　　我们可以用矩阵 <img src="http://latex.codecogs.com/png.latex?F_%7Bk%7D" alt="这里写图片描述"> 来表示这个预测过程：</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_8.jpg" alt="img"></p>
+<p>　　它将我们原始估计中的每个点都移动到了一个新的预测位置，如果原始估计是正确的话，这个新的预测位置就是系统下一步会移动到的位置。那我们又如何用矩阵来预测下一个时刻的位置和速度呢？下面用一个基本的运动学公式来表示：</p>
+<p><img src="https://img-blog.csdn.net/20170318160856125" alt="这里写图片描述"></p>
+<p>　　现在，我们有了一个预测矩阵来表示下一时刻的状态，但是，我们仍然不知道怎么更新协方差矩阵。此时，我们需要引入另一个公式，如果我们将分布中的每个点都乘以矩阵 A，那么它的协方差矩阵 <img src="http://latex.codecogs.com/png.latex?%5CSigma" alt="这里写图片描述"> 会怎样变化呢？很简单，下面给出公式：</p>
+<p><img src="https://img-blog.csdn.net/20170318162124709" alt="这里写图片描述"></p>
+<p>　　结合方程（4）和（3）得到：</p>
+<p><img src="https://img-blog.csdn.net/20170318162254991" alt="这里写图片描述"></p>
+<h4 id="外部控制量"><a href="#外部控制量" class="headerlink" title="外部控制量"></a>外部控制量</h4><p>　　我们并没有捕捉到一切信息，可能存在外部因素会对系统进行控制，带来一些与系统自身状态没有相关性的改变。<br>　　以火车的运动状态模型为例，火车司机可能会操纵油门，让火车加速。相同地，在我们机器人这个例子中，导航软件可能会发出一个指令让轮子转向或者停止。如果知道这些额外的信息，我们可以用一个向量<img src="https://img-blog.csdn.net/20170318163302455" alt="这里写图片描述">来表示，将它加到我们的预测方程中做修正。<br>　　假设由于油门的设置或控制命令，我们知道了期望的加速度<img src="https://img-blog.csdn.net/20170318163505685" alt="a">，根据基本的运动学方程可以得到：</p>
+<p><img src="https://img-blog.csdn.net/20170318163854667" alt="这里写图片描述"></p>
+<p>　　以矩阵的形式表示就是：</p>
+<p><img src="https://img-blog.csdn.net/20170318164253765" alt="这里写图片描述"></p>
+<p>　　<img src="http://latex.codecogs.com/png.latex?%5Cmathbf%7BB_%7Bk%7D%7D" alt="这里写图片描述">称为控制矩阵，<img src="https://img-blog.csdn.net/20170318163302455" alt="这里写图片描述">称为控制向量（对于没有外部控制的简单系统来说，这部分可以忽略）。让我们再思考一下，如果我们的预测并不是100%准确的，该怎么办呢？</p>
+<h4 id="外部干扰"><a href="#外部干扰" class="headerlink" title="外部干扰"></a>外部干扰</h4><p>　　如果这些状态量是基于系统自身的属性或者已知的外部控制作用来变化的，则不会出现什么问题。<br>　　但是，如果存在未知的干扰呢？例如，假设我们跟踪一个四旋翼飞行器，它可能会受到风的干扰，如果我们跟踪一个轮式机器人，轮子可能会打滑，或者路面上的小坡会让它减速。这样的话我们就不能继续对这些状态进行跟踪，如果没有把这些外部干扰考虑在内，我们的预测就会出现偏差。<br>　　在每次预测之后，我们可以添加一些新的不确定性来建立这种与“外界”（即我们没有跟踪的干扰）之间的不确定性模型：</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_9.jpg" alt="img"></p>
+<p>　　原始估计中的每个状态变量更新到新的状态后，仍然服从高斯分布。我们可以说<img src="https://img-blog.csdn.net/20170318165227537" alt="这里写图片描述">的每个状态变量移动到了一个新的服从高斯分布的区域，协方差为<img src="https://img-blog.csdn.net/20170318165322490" alt="这里写图片描述">。换句话说就是，我们将这些没有被跟踪的干扰当作协方差为<img src="https://img-blog.csdn.net/20170318165322490" alt="这里写图片描述">的噪声来处理。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_10a.jpg" alt="img"></p>
+<p>　　这产生了具有不同协方差（但是具有相同的均值）的新的高斯分布。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_10b.jpg" alt="img"></p>
+<p>　　我们通过简单地添加<img src="https://img-blog.csdn.net/20170318165322490" alt="这里写图片描述">得到扩展的协方差，下面给出预测步骤的完整表达式：</p>
+<p><img src="https://img-blog.csdn.net/20170318165745458" alt="这里写图片描述"></p>
+<p>　　由上式可知，新的最优估计是根据上一最优估计预测得到的，并加上已知外部控制量的修正。<br>　　而新的不确定性由上一不确定性预测得到，并加上外部环境的干扰。<br>　　好了，我们对系统可能的动向有了一个模糊的估计，用<img src="https://img-blog.csdn.net/20170318171505345" alt="这里写图片描述">和<img src="https://img-blog.csdn.net/20170318171548685" alt="这里写图片描述">来表示。如果再结合传感器的数据会怎样呢？</p>
+<h4 id="用测量值来修正估计值"><a href="#用测量值来修正估计值" class="headerlink" title="用测量值来修正估计值"></a>用测量值来修正估计值</h4><p>　　我们可能会有多个传感器来测量系统当前的状态，哪个传感器具体测量的是哪个状态变量并不重要，也许一个是测量位置，一个是测量速度，每个传感器间接地告诉了我们一些状态信息。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_12-624x287.jpg" alt="img"></p>
+<p>　　注意，传感器读取的数据的单位和尺度有可能与我们要跟踪的状态的单位和尺度不一样，我们用矩阵 <img src="http://latex.codecogs.com/png.latex?H_%7Bk%7D" alt="这里写图片描述"> 来表示传感器的数据。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_13.jpg" alt="img"></p>
+<p>　　我们可以计算出传感器读数的分布，用之前的表示方法如下式所示：</p>
+<p><img src="https://img-blog.csdn.net/20170318172335210" alt="这里写图片描述"></p>
+<p>　　卡尔曼滤波的一大优点就是能处理传感器噪声，换句话说，我们的传感器或多或少都有点不可靠，并且原始估计中的每个状态可以和一定范围内的传感器读数对应起来。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_14.jpg" alt="img"></p>
+<p>　　从测量到的传感器数据中，我们大致能猜到系统当前处于什么状态。但是由于存在不确定性，某些状态可能比我们得到的读数更接近真实状态。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_11.jpg" alt="img"></p>
+<p>　　我们将这种不确定性（例如：传感器噪声）用协方差<img src="https://img-blog.csdn.net/20170318172822961" alt="这里写图片描述">表示，该分布的均值就是我们读取到的传感器数据，称之为<img src="https://img-blog.csdn.net/20170318172849422" alt="这里写图片描述">。<br>现在我们有了两个高斯分布，一个是在预测值附近，一个是在传感器读数附近。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_4.jpg" alt="img"></p>
+<p>　　我们必须在预测值（粉红色）和传感器测量值（绿色）之间找到最优解。<br>　　那么，我们最有可能的状态是什么呢？对于任何可能的读数<img src="https://img-blog.csdn.net/20170318173344804" alt="这里写图片描述">，有两种情况：（1）传感器的测量值；（2）由前一状态得到的预测值。如果我们想知道这两种情况都可能发生的概率，将这两个高斯分布相乘就可以了。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_6a.png" alt="img"></p>
+<p>　　剩下的就是重叠部分了，这个重叠部分的均值就是两个估计最可能的值，也就是给定的所有信息中的最优估计。<br>　　瞧！这个重叠的区域看起来像另一个高斯分布。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/gauss_6.png" alt="img"></p>
+<p>　　如你所见，把两个具有不同均值和方差的高斯分布相乘，你会得到一个新的具有独立均值和方差的高斯分布！下面用公式讲解。</p>
+<h4 id="融合高斯分布"><a href="#融合高斯分布" class="headerlink" title="融合高斯分布"></a>融合高斯分布</h4><p>　　先以一维高斯分布来分析比较简单点，具有方差 <img src="http://latex.codecogs.com/png.latex?%5Csigma%20%5E%7B2%7D" alt="这里写图片描述"> 和 μ 的高斯曲线可以用下式表示：</p>
+<p><img src="https://img-blog.csdn.net/20170318173755919" alt="这里写图片描述"></p>
+<p>　　如果把两个服从高斯分布的函数相乘会得到什么呢？</p>
+<p><img src="https://img-blog.csdn.net/20170318174028764" alt="这里写图片描述"></p>
+<p>　　将式（9）代入到式（10）中（注意重新归一化，使总概率为1）可以得到：</p>
+<p><img src="https://img-blog.csdn.net/20170318174130470" alt="这里写图片描述"></p>
+<p>　　将式（11）中的两个式子相同的部分用 k 表示：</p>
+<p><img src="https://img-blog.csdn.net/20170318174340672" alt="这里写图片描述"></p>
+<p>　　下面进一步将式（12）和（13）写成矩阵的形式，如果 Σ 表示高斯分布的协方差，<img src="http://latex.codecogs.com/png.latex?%5Coverrightarrow%7B%5Cmu%20%7D" alt="这里写图片描述"> 表示每个维度的均值，则：</p>
+<p><img src="https://img-blog.csdn.net/20170318174609454" alt="这里写图片描述"></p>
+<p>　　矩阵<img src="https://img-blog.csdn.net/20170318174848589" alt="这里写图片描述">称为卡尔曼增益，下面将会用到。放松！我们快要完成了！</p>
+<h4 id="将所有公式整合起来"><a href="#将所有公式整合起来" class="headerlink" title="将所有公式整合起来"></a>将所有公式整合起来</h4><p>　　我们有两个高斯分布，预测部分<img src="https://img-blog.csdn.net/20170318175003185" alt="这里写图片描述">，和测量部分<img src="https://img-blog.csdn.net/20170318175025998" alt="这里写图片描述">，将它们放到式（15）中算出它们之间的重叠部分：</p>
+<p><img src="https://img-blog.csdn.net/20170318175116426" alt="这里写图片描述"></p>
+<p>　　由式（14）可得卡尔曼增益为：</p>
+<p><img src="https://img-blog.csdn.net/20170318175157766" alt="这里写图片描述"></p>
+<p>　　将式（16）和式（17）的两边同时左乘矩阵的逆（注意<img src="https://img-blog.csdn.net/20170318174848589" alt="这里写图片描述">里面包含了 <img src="http://latex.codecogs.com/png.latex?H_%7Bk%7D" alt="这里写图片描述"> ）将其约掉，再将式（16）的第二个等式两边同时右乘矩阵 <img src="http://latex.codecogs.com/png.latex?H_%7Bk%7D%5E%7BT%7D" alt="这里写图片描述"> 的逆得到以下等式：</p>
+<p><img src="https://img-blog.csdn.net/20170318175537505" alt="这里写图片描述"></p>
+<p>　　上式给出了完整的更新步骤方程。<img src="https://img-blog.csdn.net/20170318175636365" alt="这里写图片描述">就是新的最优估计，我们可以将它和<img src="https://img-blog.csdn.net/20170318175649850" alt="这里写图片描述">放到下一个预测和更新方程中不断迭代。</p>
+<p><img src="http://www.bzarg.com/wp-content/uploads/2015/08/kalflow.png" alt="img"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>　　以上所有公式中，你只需要用到式（7）、（18）、（19）。（如果忘了的话，你可以根据式（4）和（15）重新推导一下）<br>　　我们可以用这些公式对任何线性系统建立精确的模型，对于非线性系统来说，我们使用扩展卡尔曼滤波，区别在于EKF多了一个把预测和测量部分进行线性化的过程。</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/poster/5b298b12.html"
+      title="卡尔曼滤波器"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        卡尔曼滤波器
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/poster/439d054d.html"
+      title="2182.构造限制重复的字符串"
+     >
+
+    <p class="title-text">
+      
+        2182.构造限制重复的字符串
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">Comments </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 aqizhoua<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
