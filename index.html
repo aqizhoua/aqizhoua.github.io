@@ -361,7 +361,7 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            315 words 
+            460 words 
           </div>
         </div>
         
@@ -375,7 +375,7 @@ mjx-container[display="true"] + br {
               基础作业使用 InternLM-Chat-7B 模型生成 300 字的小故事（需截图）。
 
 熟悉 hugging face 下载功能，使用 huggingface_hub python 包，下载 InternLM-20B 的 config.json 文件到本地（需截图下载过程）。
-1234import os# 下载模型os.system(&#x27;huggingface-cli download --resume-download internlm/internlm-chat-7b --local-dir ./&#x27;)
+123456import osfrom huggingface_hub import hf_hub_download  # Load model directly# 设置环境变量os.environ[&#x27;HF_ENDPOINT&#x27;] = &#x27;https://hf-mirror.com&#x27;hf_hub_download(repo_id=&quot;internlm/internlm-7b&quot;, filename=&quot;config.json&quot;,local_dir=&quot;./&quot;)
 
 进阶作业（可选做）完成浦语·灵笔的图文理解及创作部署（需截图）
 
@@ -388,9 +388,7 @@ mjx-container[display="true"] + br {
 
 
 
-完成 Lagent 工具调用 Demo 创作部署（需截图）
-
-
+完成 Lagent 工具调用 Demo...
             
           </div>
         
@@ -1085,5 +1083,20 @@ ans=
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
