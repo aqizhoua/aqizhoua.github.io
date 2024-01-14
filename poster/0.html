@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>aqizhoua</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="title: lesson3作业tags: 书生浦语大模型实战营categories: 大模型abbrlink: 8e7b9adedate: 2024-01-14 13:47:43 Lecture3. 作业1.基础作业：复现课程知识库助手搭建过程 (截图)环境配置 环境准备  开发机创建  https:&#x2F;&#x2F;aicarrier.feishu.cn&#x2F;wiki&#x2F;VLS7w5I22iQWmTk0Expcz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="aqizhoua">
+<meta property="og:url" content="https://aqizhoua.github.io/poster/0.html">
+<meta property="og:site_name" content="aqizhoua">
+<meta property="og:description" content="title: lesson3作业tags: 书生浦语大模型实战营categories: 大模型abbrlink: 8e7b9adedate: 2024-01-14 13:47:43 Lecture3. 作业1.基础作业：复现课程知识库助手搭建过程 (截图)环境配置 环境准备  开发机创建  https:&#x2F;&#x2F;aicarrier.feishu.cn&#x2F;wiki&#x2F;VLS7w5I22iQWmTk0Expcz">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240114/7.4jhwdub0jde0.webp">
+<meta property="article:published_time" content="2024-01-14T05:47:43.850Z">
+<meta property="article:modified_time" content="2024-01-14T06:51:39.313Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240114/7.4jhwdub0jde0.webp">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>aqizhoua </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/fanren">Fanren</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/fanren">Fanren</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/sleep.jpg></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">aqizhoua </div>
+      <div class="dot"></div>
+      <div class="subtitle">人生是旷野 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/aqizhoua" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box"></div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Tags</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/MOT/" rel="tag">MOT</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/smtp/" rel="tag">smtp</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A5/" rel="tag">书生浦语大模型实战营</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" rel="tag">数学知识</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Archives</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          January 2024 
+          <div class="archive-count">7 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/11 ">
+          November 2023 
+          <div class="archive-count">5 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul>
+        
+          <a class="recent-link" href="/poster/0.html" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/dd86f549.html" title="lesson3_基于 InternLM 和 LangChain 搭建自己的知识库" >
+            <div class="recent-link-text">
+              lesson3_基于 InternLM 和 LangChain 搭建自己的知识库
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/5b298b12.html" title="卡尔曼滤波器" >
+            <div class="recent-link-text">
+              卡尔曼滤波器
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/439d054d.html" title="2182.构造限制重复的字符串" >
+            <div class="recent-link-text">
+              2182.构造限制重复的字符串
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/280c916a.html" title="lesson2作业" >
+            <div class="recent-link-text">
+              lesson2作业
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-lesson3作业" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        Untitled
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-01-14T05:47:43.850Z" itemprop="datePublished">2024-01-14</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    Uncategorized 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            7.7k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>title: lesson3作业<br>tags: 书生浦语大模型实战营<br>categories: 大模型<br>abbrlink: 8e7b9ade<br>date: 2024-01-14 13:47:43</p>
+<h2 id="Lecture3-作业"><a href="#Lecture3-作业" class="headerlink" title="Lecture3. 作业"></a>Lecture3. 作业</h2><h3 id="1-基础作业：复现课程知识库助手搭建过程-截图"><a href="#1-基础作业：复现课程知识库助手搭建过程-截图" class="headerlink" title="1.基础作业：复现课程知识库助手搭建过程 (截图)"></a>1.基础作业：复现课程知识库助手搭建过程 (截图)</h3><h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><ul>
+<li><p>环境准备</p>
+<ul>
+<li><p>开发机创建</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://aicarrier.feishu.cn/wiki/VLS7w5I22iQWmTk0ExpczIKcnpf">https://aicarrier.feishu.cn/wiki/VLS7w5I22iQWmTk0ExpczIKcnpf</a></li>
+</ul>
+</li>
+<li><p>安装conda环境、安装依赖库</p>
+</li>
+</ul>
+</li>
+<li><p>模型下载</p>
+<ul>
+<li>下载internlm-chat-7b模型</li>
+</ul>
+</li>
+<li><p>LangChain 相关环境配置</p>
+<ul>
+<li><p>安装LangChain依赖包</p>
+<ul>
+<li>```<br>pip install langchain==0.0.292<br>pip install gradio==4.4.0<br>pip install chromadb==0.4.15<br>pip install sentence-transformers==2.2.2<br>pip install unstructured==0.10.30<br>pip install markdown==3.3.7<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 下载开源词向量模型 Sentence Transformer</span><br><span class="line"></span><br><span class="line">  - 在/root/code下创建LangChain文件下，在该文件夹下创建download_hf.py文件</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+import os</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><p>os.environ[‘HF_ENDPOINT’] = ‘<a target="_blank" rel="noopener" href="https://hf-mirror.com">https://hf-mirror.com</a>‘</p>
+<h1 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h1><h1 id="resume-download：断点续下"><a href="#resume-download：断点续下" class="headerlink" title="- resume-download：断点续下"></a>- resume-download：断点续下</h1><h1 id="local-dir：本地存储路径。（linux环境下需要填写绝对路径）"><a href="#local-dir：本地存储路径。（linux环境下需要填写绝对路径）" class="headerlink" title="- local-dir：本地存储路径。（linux环境下需要填写绝对路径）"></a>- local-dir：本地存储路径。（linux环境下需要填写绝对路径）</h1><p>os.system(‘huggingface-cli download —resume-download sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 —local-dir /root/model/sentence-transformer’)<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![3](https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240114/3.7h78kdb8qh00.webp)</span><br><span class="line"></span><br><span class="line">- 下载NLTK 相关资源</span><br><span class="line"></span><br><span class="line">  - 在使用开源词向量模型构建开源词向量的时候，需要用到第三方库 `nltk` 的一些资源</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>cd /root<br>git clone <a target="_blank" rel="noopener" href="https://gitee.com/yzy0612/nltk_data.git">https://gitee.com/yzy0612/nltk_data.git</a>  —branch gh-pages<br>cd nltk_data<br>mv packages/*  ./<br>cd tokenizers<br>unzip punkt.zip<br>cd ../taggers<br>unzip averaged_perceptron_tagger.zip<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![4](https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240114/4.iz27tf455r4.webp)</span><br><span class="line"></span><br><span class="line">- 下载本项目代码</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>cd /root<br>mkdir data<br>git clone <a target="_blank" rel="noopener" href="https://github.com/InternLM/tutorial">https://github.com/InternLM/tutorial</a><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 知识库搭建</span><br><span class="line"></span><br><span class="line">- 数据收集</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h1 id="进入到数据库盘"><a href="#进入到数据库盘" class="headerlink" title="进入到数据库盘"></a>进入到数据库盘</h1><p>cd /root/data</p>
+<h1 id="clone-上述开源仓库"><a href="#clone-上述开源仓库" class="headerlink" title="clone 上述开源仓库"></a>clone 上述开源仓库</h1><p>git clone <a target="_blank" rel="noopener" href="https://gitee.com/open-compass/opencompass.git">https://gitee.com/open-compass/opencompass.git</a><br>git clone <a target="_blank" rel="noopener" href="https://gitee.com/InternLM/lmdeploy.git">https://gitee.com/InternLM/lmdeploy.git</a><br>git clone <a target="_blank" rel="noopener" href="https://gitee.com/InternLM/xtuner.git">https://gitee.com/InternLM/xtuner.git</a><br>git clone <a target="_blank" rel="noopener" href="https://gitee.com/InternLM/InternLM-XComposer.git">https://gitee.com/InternLM/InternLM-XComposer.git</a><br>git clone <a target="_blank" rel="noopener" href="https://gitee.com/InternLM/lagent.git">https://gitee.com/InternLM/lagent.git</a><br>git clone <a target="_blank" rel="noopener" href="https://gitee.com/InternLM/InternLM.git">https://gitee.com/InternLM/InternLM.git</a><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 加载数据</span><br><span class="line"></span><br><span class="line">- 构建向量数据库</span><br><span class="line"></span><br><span class="line">- 整体脚本</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h1 id="首先导入所需第三方库"><a href="#首先导入所需第三方库" class="headerlink" title="首先导入所需第三方库"></a>首先导入所需第三方库</h1><p>from langchain.document_loaders import UnstructuredFileLoader<br>from langchain.document_loaders import UnstructuredMarkdownLoader<br>from langchain.text_splitter import RecursiveCharacterTextSplitter<br>from langchain.vectorstores import Chroma<br>from langchain.embeddings.huggingface import HuggingFaceEmbeddings<br>from tqdm import tqdm<br>import os</p>
+<h1 id="获取文件路径函数"><a href="#获取文件路径函数" class="headerlink" title="获取文件路径函数"></a>获取文件路径函数</h1><p>def get_files(dir_path):</p>
+<pre><code># args：dir_path，目标文件夹路径
+file_list = []
+for filepath, dirnames, filenames in os.walk(dir_path):
+    # os.walk 函数将递归遍历指定文件夹
+    for filename in filenames:
+        # 通过后缀名判断文件类型是否满足要求
+        if filename.endswith(&quot;.md&quot;):
+            # 如果满足要求，将其绝对路径加入到结果列表
+            file_list.append(os.path.join(filepath, filename))
+        elif filename.endswith(&quot;.txt&quot;):
+            file_list.append(os.path.join(filepath, filename))
+return file_list
+</code></pre><h1 id="加载文件函数"><a href="#加载文件函数" class="headerlink" title="加载文件函数"></a>加载文件函数</h1><p>def get_text(dir_path):</p>
+<pre><code># args：dir_path，目标文件夹路径
+# 首先调用上文定义的函数得到目标文件路径列表
+file_lst = get_files(dir_path)
+# docs 存放加载之后的纯文本对象
+docs = []
+# 遍历所有目标文件
+for one_file in tqdm(file_lst):
+    file_type = one_file.split(&#39;.&#39;)[-1]
+    if file_type == &#39;md&#39;:
+        loader = UnstructuredMarkdownLoader(one_file)
+    elif file_type == &#39;txt&#39;:
+        loader = UnstructuredFileLoader(one_file)
+    else:
+        # 如果是不符合条件的文件，直接跳过
+        continue
+    docs.extend(loader.load())
+return docs
+</code></pre><h1 id="目标文件夹"><a href="#目标文件夹" class="headerlink" title="目标文件夹"></a>目标文件夹</h1><p>tar_dir = [<br>    “/root/data/InternLM”,<br>    “/root/data/InternLM-XComposer”,<br>    “/root/data/lagent”,<br>    “/root/data/lmdeploy”,<br>    “/root/data/opencompass”,<br>    “/root/data/xtuner”<br>]</p>
+<h1 id="加载目标文件"><a href="#加载目标文件" class="headerlink" title="加载目标文件"></a>加载目标文件</h1><p>docs = []<br>for dir_path in tar_dir:<br>    docs.extend(get_text(dir_path))</p>
+<h1 id="对文本进行分块"><a href="#对文本进行分块" class="headerlink" title="对文本进行分块"></a>对文本进行分块</h1><p>text_splitter = RecursiveCharacterTextSplitter(<br>    chunk_size=500, chunk_overlap=150)<br>split_docs = text_splitter.split_documents(docs)</p>
+<h1 id="加载开源词向量模型"><a href="#加载开源词向量模型" class="headerlink" title="加载开源词向量模型"></a>加载开源词向量模型</h1><p>embeddings = HuggingFaceEmbeddings(model_name=”/root/model/sentence-transformer”)</p>
+<h1 id="构建向量数据库"><a href="#构建向量数据库" class="headerlink" title="构建向量数据库"></a>构建向量数据库</h1><h1 id="定义持久化路径"><a href="#定义持久化路径" class="headerlink" title="定义持久化路径"></a>定义持久化路径</h1><p>persist_directory = ‘data_base/vector_db/chroma’</p>
+<h1 id="加载数据库"><a href="#加载数据库" class="headerlink" title="加载数据库"></a>加载数据库</h1><p>vectordb = Chroma.from_documents(<br>    documents=split_docs,<br>    embedding=embeddings,<br>    persist_directory=persist_directory  # 允许我们将persist_directory目录保存到磁盘上<br>)</p>
+<h1 id="将加载的向量数据库持久化到磁盘上"><a href="#将加载的向量数据库持久化到磁盘上" class="headerlink" title="将加载的向量数据库持久化到磁盘上"></a>将加载的向量数据库持久化到磁盘上</h1><p>vectordb.persist()<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![5](https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240114/5.2oufhlsds6g0.webp)</span><br><span class="line"></span><br><span class="line">#### InternLM 接入 LangChain</span><br><span class="line"></span><br><span class="line">- 为便捷构建 LLM 应用，我们需要基于本地部署的 InternLM，继承 LangChain 的 LLM 类自定义一个 InternLM LLM 子类，从而实现将 InternLM 接入到 LangChain 框架中。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>from langchain.llms.base import LLM<br>from typing import Any, List, Optional<br>from langchain.callbacks.manager import CallbackManagerForLLMRun<br>from transformers import AutoTokenizer, AutoModelForCausalLM<br>import torch</p>
+<p>class InternLM_LLM(LLM):</p>
+<pre><code># 基于本地 InternLM 自定义 LLM 类
+tokenizer : AutoTokenizer = None
+model: AutoModelForCausalLM = None
+
+def __init__(self, model_path :str):
+    # model_path: InternLM 模型路径
+    # 从本地初始化模型
+    super().__init__()
+    print(&quot;正在从本地加载模型...&quot;)
+    self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+    self.model = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True).to(torch.bfloat16).cuda()
+    self.model = self.model.eval()
+    print(&quot;完成本地模型的加载&quot;)
+
+def _call(self, prompt : str, stop: Optional[List[str]] = None,
+            run_manager: Optional[CallbackManagerForLLMRun] = None,
+            **kwargs: Any):
+    # 重写调用函数
+    system_prompt = &quot;&quot;&quot;You are an AI assistant whose name is InternLM (书生·浦语).
+    - InternLM (书生·浦语) is a conversational language model that is developed by Shanghai AI Laboratory (上海人工智能实验室). It is designed to be helpful, honest, and harmless.
+    - InternLM (书生·浦语) can understand and communicate fluently in the language chosen by the user such as English and 中文.
+    &quot;&quot;&quot;
+
+    messages = [(system_prompt, &#39;&#39;)]
+    response, history = self.model.chat(self.tokenizer, prompt , history=messages)
+    return response
+
+@property
+def _llm_type(self) -&gt; str:
+    return &quot;InternLM&quot;
+</code></pre><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 构建检索问答链</span><br><span class="line"></span><br><span class="line">- 加载向量数据库</span><br><span class="line">- 实例化自定义 LLM 与 Prompt Template</span><br><span class="line">- 构建检索问答链</span><br><span class="line">- 三步的代码合在下面Web Demo里了</span><br><span class="line"></span><br><span class="line">#### 部署 Web Demo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>from langchain.vectorstores import Chroma<br>from langchain.embeddings.huggingface import HuggingFaceEmbeddings<br>import os<br>from InternLM_LLM import InternLM_LLM<br>from langchain.prompts import PromptTemplate<br>from langchain.chains import RetrievalQA</p>
+<p>def load_chain():</p>
+<pre><code># 加载问答链
+# 定义 Embeddings
+embeddings = HuggingFaceEmbeddings(model_name=&quot;/root/model/sentence-transformer&quot;)
+
+# 向量数据库持久化路径
+persist_directory = &#39;data_base/vector_db/chroma&#39;
+
+# 加载数据库
+vectordb = Chroma(
+    persist_directory=persist_directory,  # 允许我们将persist_directory目录保存到磁盘上
+    embedding_function=embeddings
+)
+
+# 加载自定义 LLM
+llm = InternLM_LLM(model_path = &quot;/root/model/Shanghai_AI_Laboratory/internlm-chat-7b&quot;)
+
+# 定义一个 Prompt Template
+template = &quot;&quot;&quot;使用以下上下文来回答最后的问题。如果你不知道答案，就说你不知道，不要试图编造答
+案。尽量使答案简明扼要。总是在回答的最后说“谢谢你的提问！”。
+&#123;context&#125;
+问题: &#123;question&#125;
+有用的回答:&quot;&quot;&quot;
+
+QA_CHAIN_PROMPT = PromptTemplate(input_variables=[&quot;context&quot;,&quot;question&quot;],template=template)
+
+# 运行 chain
+qa_chain = RetrievalQA.from_chain_type(llm,retriever=vectordb.as_retriever(),return_source_documents=True,chain_type_kwargs=&#123;&quot;prompt&quot;:QA_CHAIN_PROMPT&#125;)
+
+return qa_chain
+</code></pre><p>class Model_center():<br>    “””<br>    存储检索问答链的对象<br>    “””<br>    def <strong>init</strong>(self):</p>
+<pre><code>    # 构造函数，加载检索问答链
+    self.chain = load_chain()
+
+def qa_chain_self_answer(self, question: str, chat_history: list = []):
+    &quot;&quot;&quot;
+    调用问答链进行回答
+    &quot;&quot;&quot;
+    if question == None or len(question) &lt; 1:
+        return &quot;&quot;, chat_history
+    try:
+        chat_history.append(
+            (question, self.chain(&#123;&quot;query&quot;: question&#125;)[&quot;result&quot;]))
+        # 将问答结果直接附加到问答历史中，Gradio 会将其展示出来
+        return &quot;&quot;, chat_history
+    except Exception as e:
+        return e, chat_history
+</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    import gradio as gr</p>
+<pre><code># 实例化核心功能对象
+model_center = Model_center()
+# 创建一个 Web 界面
+block = gr.Blocks()
+with block as demo:
+    with gr.Row(equal_height=True):   
+        with gr.Column(scale=15):
+            # 展示的页面标题
+            gr.Markdown(&quot;&quot;&quot;&lt;h1&gt;&lt;center&gt;InternLM&lt;/center&gt;&lt;/h1&gt;
+                &lt;center&gt;书生浦语&lt;/center&gt;
+                &quot;&quot;&quot;)
+
+    with gr.Row():
+        with gr.Column(scale=4):
+            # 创建一个聊天机器人对象
+            chatbot = gr.Chatbot(height=450, show_copy_button=True)
+            # 创建一个文本框组件，用于输入 prompt。
+            msg = gr.Textbox(label=&quot;Prompt/问题&quot;)
+
+            with gr.Row():
+                # 创建提交按钮。
+                db_wo_his_btn = gr.Button(&quot;Chat&quot;)
+            with gr.Row():
+                # 创建一个清除按钮，用于清除聊天机器人组件的内容。
+                clear = gr.ClearButton(
+                    components=[chatbot], value=&quot;Clear console&quot;)
+
+        # 设置按钮的点击事件。当点击时，调用上面定义的 qa_chain_self_answer 函数，并传入用户的消息和聊天历史记录，然后更新文本框和聊天机器人组件。
+        db_wo_his_btn.click(model_center.qa_chain_self_answer, inputs=[
+                            msg, chatbot], outputs=[msg, chatbot])
+
+    gr.Markdown(&quot;&quot;&quot;提醒：&lt;br&gt;
+    1. 初始化数据库时间可能较长，请耐心等待。
+    2. 使用中如果出现异常，将会在文本输入框进行展示，请不要惊慌。 &lt;br&gt;
+    &quot;&quot;&quot;)
+gr.close_all()
+# 直接启动
+demo.launch()
+</code></pre><p>```</p>
+<p><img src="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240114/7.4jhwdub0jde0.webp" alt="6"></p>
+<h3 id="2-进阶作业：选择一个垂直领域，收集该领域的专业资料构建专业知识库，并搭建专业问答助手，并在-OpenXLab-上成功部署（截图，并提供应用地址）"><a href="#2-进阶作业：选择一个垂直领域，收集该领域的专业资料构建专业知识库，并搭建专业问答助手，并在-OpenXLab-上成功部署（截图，并提供应用地址）" class="headerlink" title="2.进阶作业：选择一个垂直领域，收集该领域的专业资料构建专业知识库，并搭建专业问答助手，并在 OpenXLab 上成功部署（截图，并提供应用地址）"></a>2.进阶作业：选择一个垂直领域，收集该领域的专业资料构建专业知识库，并搭建专业问答助手，并在 <a target="_blank" rel="noopener" href="https://openxlab.org.cn/apps">OpenXLab</a> 上成功部署（截图，并提供应用地址）</h3>
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/poster/dd86f549.html"
+      title="lesson3_基于 InternLM 和 LangChain 搭建自己的知识库"
+     >
+
+    <p class="title-text">
+      
+        lesson3_基于 InternLM 和 LangChain 搭建自己的知识库
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">Comments </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 aqizhoua<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
