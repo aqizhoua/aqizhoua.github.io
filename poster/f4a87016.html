@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>2809-使数组和小于等于 x 的最少时间 | aqizhoua</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;minimum-time-to-make-array-sum-at-most-x&#x2F;description&#x2F; 代码12345678910111213141516171819202122232425262728class Solution &#123;public:    int minimumTime(vector&lt;int&gt;&amp;am">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2809-使数组和小于等于 x 的最少时间">
+<meta property="og:url" content="https://aqizhoua.github.io/poster/f4a87016.html">
+<meta property="og:site_name" content="aqizhoua">
+<meta property="og:description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;minimum-time-to-make-array-sum-at-most-x&#x2F;description&#x2F; 代码12345678910111213141516171819202122232425262728class Solution &#123;public:    int minimumTime(vector&lt;int&gt;&amp;am">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-19T05:04:27.000Z">
+<meta property="article:modified_time" content="2024-01-19T05:07:28.843Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="每日一题">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>aqizhoua </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/fanren">Fanren</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/fanren">Fanren</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/sleep.jpg></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">aqizhoua </div>
+      <div class="dot"></div>
+      <div class="subtitle">人生是旷野 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/aqizhoua" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box"></div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Tags</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/MOT/" rel="tag">MOT</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/smtp/" rel="tag">smtp</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A5/" rel="tag">书生浦语大模型实战营</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" rel="tag">数学知识</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Archives</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          January 2024 
+          <div class="archive-count">9 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/11 ">
+          November 2023 
+          <div class="archive-count">5 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul>
+        
+          <a class="recent-link" href="/poster/f4a87016.html" title="2809-使数组和小于等于 x 的最少时间" >
+            <div class="recent-link-text">
+              2809-使数组和小于等于 x 的最少时间
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/e788ef05.html" title="2719-统计整数数目" >
+            <div class="recent-link-text">
+              2719-统计整数数目
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/8e7b9ade.html" title="lesson3作业" >
+            <div class="recent-link-text">
+              lesson3作业
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/dd86f549.html" title="lesson3_基于 InternLM 和 LangChain 搭建自己的知识库" >
+            <div class="recent-link-text">
+              lesson3_基于 InternLM 和 LangChain 搭建自己的知识库
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/poster/5b298b12.html" title="卡尔曼滤波器" >
+            <div class="recent-link-text">
+              卡尔曼滤波器
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-2809-使数组和小于等于-x-的最少时间" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        2809-使数组和小于等于 x 的最少时间
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-01-19T05:04:27.000Z" itemprop="datePublished">2024-01-19</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/leetcode/">leetcode</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-time-to-make-array-sum-at-most-x/description/">https://leetcode.cn/problems/minimum-time-to-make-array-sum-at-most-x/description/</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minimumTime(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2, int x) &#123;</span><br><span class="line">        int n = nums1.size();</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; dp(n + 1, vector&lt;int&gt;(n + 1, 0));</span><br><span class="line">        vector&lt;pair&lt;int, int&gt;&gt; nums(n);</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            nums[i] = &#123;nums2[i], nums1[i]&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line"></span><br><span class="line">        for (int j = 1; j &lt;= n; j++) &#123;</span><br><span class="line">            int b = nums[j - 1].first, a = nums[j - 1].second;</span><br><span class="line">            for (int i = j; i &gt; 0; i--) &#123;</span><br><span class="line">                dp[j][i] = max(dp[j - 1][i], dp[j - 1][i - 1] + i * b + a);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int s1 = accumulate(nums1.begin(), nums1.end(), 0);</span><br><span class="line">        int s2 = accumulate(nums2.begin(), nums2.end(), 0);</span><br><span class="line">        for (int i = 0; i &lt;= n; i++) &#123;</span><br><span class="line">            if (s2 * i + s1 - dp[n][i] &lt;= x) &#123;</span><br><span class="line">                return i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>逐行解释代码的功能：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">minimumTime</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> x)</span> </span>&#123;</span><br></pre></td></tr></table></figure>
+<p>这是 <code>minimumTime</code> 函数的声明，它接收两个整数向量 <code>nums1</code> 和 <code>nums2</code>，以及一个整数 <code>x</code> 作为参数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n = nums1.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
+<p>这行代码初始化了一个整数 <code>n</code>，它是 <code>nums1</code>（和 <code>nums2</code>，因为它们长度相等）的长度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n + <span class="number">1</span>, <span class="number">0</span>));</span><br></pre></td></tr></table></figure>
+<p>这里声明了一个二维向量 <code>dp</code>，大小为 <code>(n+1) x (n+1)</code>，所有元素初始化为 <code>0</code>。<code>dp</code> 用于动态规划，其中 <code>dp[j][i]</code> 将存储考虑到第 <code>j</code> 个元素和 <code>i</code> 次操作时的最佳结果。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; <span class="built_in">nums</span>(n);</span><br></pre></td></tr></table></figure>
+<p>创建一个 <code>pair</code> 类型的向量 <code>nums</code>，长度为 <code>n</code>。每个元素都是一个包含来自 <code>nums2</code> 和 <code>nums1</code> 的值的对。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    nums[i] = &#123;nums2[i], nums1[i]&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个循环填充 <code>nums</code> 向量，每个元素都是一个由 <code>nums2[i]</code> 和 <code>nums1[i]</code> 组成的对，这个对可能用于后续的排序和决策。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br></pre></td></tr></table></figure>
+<p>对 <code>nums</code> 向量进行排序，默认情况下是按照第一个元素（也就是 <code>nums2</code> 的值）进行升序排序。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br></pre></td></tr></table></figure>
+<p>这个循环通过 <code>j</code> 来迭代 <code>nums</code> 向量的每个元素。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> b = nums[j - <span class="number">1</span>].first, a = nums[j - <span class="number">1</span>].second;</span><br></pre></td></tr></table></figure>
+<p>提取 <code>nums</code> 中的第 <code>j-1</code> 个元素对，将 <code>nums2</code> 的值赋给 <code>b</code>，将 <code>nums1</code> 的值赋给 <code>a</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = j; i &gt; <span class="number">0</span>; i--) &#123;</span><br></pre></td></tr></table></figure>
+<p>这个内部循环倒序迭代从 <code>j</code> 到 <code>1</code> 的每个值，用于更新 <code>dp</code> 数组。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[j][i] = <span class="built_in">max</span>(dp[j - <span class="number">1</span>][i], dp[j - <span class="number">1</span>][i - <span class="number">1</span>] + i * b + a);</span><br></pre></td></tr></table></figure>
+<p>更新 <code>dp[j][i]</code> 的值。这里它比较两个选项：不做操作（<code>dp[j - 1][i]</code>）和做操作（<code>dp[j - 1][i - 1] + i * b + a</code>），选择它们之间的最大值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里闭合了内部 <code>for</code> 循环和外部 <code>for</code> 循环。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> s1 = <span class="built_in">accumulate</span>(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>计算 <code>nums1</code> 的元素总和。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> s2 = <span class="built_in">accumulate</span>(nums2.<span class="built_in">begin</span>(), nums2.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>计算 <code>nums2</code> 的元素总和。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br></pre></td></tr></table></figure>
+<p>这个循环用于寻找最少的操作次数，使得 <code>nums1</code> 的总和加上每秒 <code>nums2</code> 产生的增量后不超过 <code>x</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (s2 * i + s1 - dp[n][i] &lt;= x) &#123;</span><br></pre></td></tr></table></figure>
+<p>检查在 <code>i</code> 次操作后，是否可以将 <code>nums1</code> 的总和减少到 <code>x</code> 或以下。这个条件利用了 <code>dp</code> 数组的结果来确定。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> i;</span><br></pre></td></tr></table></figure>
+<p>如果条件满足，则返回操作次数 `</p>
+<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[j][i] = max(dp[j - 1][i], dp[j - 1][i - 1] + i * b + a);</span><br></pre></td></tr></table></figure>
+<p>这个动态规划（DP）的转移方程是这段代码中最关键的部分，它是决定 <code>dp</code> 数组如何更新的核心。</p>
+<p>在这个上下文中，<code>dp[j][i]</code> 表示考虑前 <code>j</code> 个元素，并且进行了 <code>i</code> 次操作时 <code>nums1</code> 的元素总和的最大可能增量。这里的 “操作” 特指的是在每一秒钟结束时，选择一个 <code>nums1</code> 中的元素，并使其增加 <code>nums2</code> 中对应位置的值。</p>
+<p>让我们分解这个方程：</p>
+<ul>
+<li><p><code>dp[j - 1][i]</code>：<br>这表示如果在当前秒不进行任何操作，<code>nums1</code> 的总和将与前一秒 <code>j-1</code> 时在 <code>i</code> 次操作下的总和相同。</p>
+</li>
+<li><p><code>dp[j - 1][i - 1] + i * b + a</code>：<br>这是一个比较复杂的表达式，它表示如果在当前秒你选择进行操作，你能得到的 <code>nums1</code> 总和的最大增量。</p>
+<ul>
+<li><code>dp[j - 1][i - 1]</code>：这是前一秒在做了 <code>i-1</code> 次操作的情况下的最大总和增量。</li>
+<li><code>i * b</code>：因为每进行一次操作，<code>nums2[j-1]</code>（在代码中是 <code>b</code>）就会被加到 <code>nums1</code> 对应的元素上 <code>i</code> 次（因为已经经过了 <code>i</code> 秒），所以这里乘以 <code>i</code>。</li>
+<li><code>a</code>：这是 <code>nums1[j-1]</code> 在没有任何操作时本应该增加的值，在进行操作后这个增量依然会发生。</li>
+</ul>
+</li>
+</ul>
+<p>然后，<code>max(dp[j - 1][i], dp[j - 1][i - 1] + i * b + a)</code> 这部分比较了两种情况（操作或不操作）并选择了能够得到更大总和的那个选项。</p>
+<p>因此，这个转移方程在每一步都在决定：给定当前我们正在考虑的元素（<code>j</code> 个），如果进行了 <code>i</code> 次操作，是继续保持当前的总和（不操作），还是通过增加对应 <code>nums2</code> 的值来尝试增加 <code>nums1</code> 的总和（操作），以便在不超过 <code>x</code> 的条件下达到最小的搬运时间。</p>
+<p>这个决策过程在所有元素和所有可能的操作次数上累积起来，最终 <code>dp[n][i]</code> 会告诉我们在进行 <code>i</code> 次操作后能得到的 <code>nums1</code> 的最大总和增量。</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/poster/e788ef05.html"
+      title="2719-统计整数数目"
+     >
+
+    <p class="title-text">
+      
+        2719-统计整数数目
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">Comments </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 aqizhoua<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
