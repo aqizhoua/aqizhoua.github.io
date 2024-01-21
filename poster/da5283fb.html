@@ -14,18 +14,23 @@
   
 
   
-  <title>Category: 大模型 | aqizhoua</title>
+  <title>lesson4-XTuner 大模型单卡低成本微调实战 | aqizhoua</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="aqizhoua">
-<meta property="og:url" content="https://aqizhoua.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.html">
+  <meta name="description" content="在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的RAG。本节课中，我们主要学习第二种范式，Finetune，并使用XTuner基于InternLM进行单卡微调。在普通的学习中，LLM没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。XTuner是打包好的微调工具箱，它的微调原理是LoRA&amp;QLoRA，能够减少显">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lesson4-XTuner 大模型单卡低成本微调实战">
+<meta property="og:url" content="https://aqizhoua.github.io/poster/da5283fb.html">
 <meta property="og:site_name" content="aqizhoua">
+<meta property="og:description" content="在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的RAG。本节课中，我们主要学习第二种范式，Finetune，并使用XTuner基于InternLM进行单卡微调。在普通的学习中，LLM没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。XTuner是打包好的微调工具箱，它的微调原理是LoRA&amp;QLoRA，能够减少显">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-20T05:26:38.000Z">
+<meta property="article:modified_time" content="2024-01-20T06:00:04.397Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="书生浦语大模型实战营">
 <meta name="twitter:card" content="summary">
   
   
@@ -217,139 +222,157 @@
     <div id="content-body">
        
 
-<div class="archive-main-card">
-    <div class="archive-top">
-      <div class="main-title-bar">
-        <div class="main-title-dot"></div>
-        <h1 class="article-title">Archives</h1>
-      </div>    
+
+<article id="post-lesson4-XTuner-大模型单卡低成本微调实战" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        lesson4-XTuner 大模型单卡低成本微调实战
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-01-20T05:26:38.000Z" itemprop="datePublished">2024-01-20</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A5/" rel="tag">书生浦语大模型实战营</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的<code>RAG</code>。本节课中，我们主要学习第二种范式，<code>Finetune</code>，并使用<code>XTuner</code>基于<code>InternLM</code>进行单卡微调。在普通的学习中，<code>LLM</code>没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。<code>XTuner</code>是打包好的微调工具箱，它的微调原理是<code>LoRA</code>&amp;<code>QLoRA</code>，能够减少显存占用，使开发者专注数据内容而不是格式。（引自：<a target="_blank" rel="noopener" href="https://broadleaf-gemini-274.notion.site/Lecture4-XTuner-d6399774b18f4818ba8eeb1eceaf7a08）">https://broadleaf-gemini-274.notion.site/Lecture4-XTuner-d6399774b18f4818ba8eeb1eceaf7a08）</a></p>
+<h1 id="XTuner概述"><a href="#XTuner概述" class="headerlink" title="XTuner概述"></a>XTuner概述</h1><h2 id="Finetune"><a href="#Finetune" class="headerlink" title="Finetune"></a>Finetune</h2><p><code>Finetune</code>是大模型常见的两种范式之一，它的核心：在已有数据集上微调</p>
+<ul>
+<li>可以进行更多<strong>个性化</strong>微调，以满足用户需求。</li>
+<li>需要在新的数据集上进行训练，这可能会导致成本上升。然而，这也意味着模型可以更好地适应不断变化的环境。</li>
+<li>需要注意的是，由于训练成本较高，模型的更新可能不是实时的，但我们可以定期进行更新以确保其性能始终保持在最佳状态。</li>
+</ul>
+<h2 id="LLM"><a href="#LLM" class="headerlink" title="LLM"></a>LLM</h2><p><code>LLM</code>就是大语言模型的统称。我们知道，<code>LangChain</code>封装了很多组件，通过将这些组件组合，一个<code>chain</code>能够封装一系列的<code>LLM</code>操作。</p>
+<h2 id="XTuner"><a href="#XTuner" class="headerlink" title="XTuner"></a>XTuner</h2><p><code>XTuner</code>是打包好的微调工具箱，支持<code>Huggingface</code>和<code>modelscope</code>加载模型和数据集。支持多款开源大模型<code>InternLM</code>，阿里千问，百川大模型，清华<code>Chatglm</code>，多专家模型等，加速算法等等都有。</p>
+<h1 id="微调框架Xtuner原理"><a href="#微调框架Xtuner原理" class="headerlink" title="微调框架Xtuner原理"></a>微调框架Xtuner原理</h1><aside> 📎 **Finetune简介：**
+
+</aside>
+
+<ul>
+<li><p><strong>为什么要微调大语言模型？</strong> 在普通的学习中，LLM没办法很好的应用于具体的实际和板块，需要微调来定制！</p>
+</li>
+<li><p>常见的两种微调策略（训练数据的处理）：</p>
+<ul>
+<li><p><strong>增量预训练</strong></p>
+<ul>
+<li>给模型投喂新知识，学更多有关目标领域的文本内容</li>
+<li>不需要问题，只需要回答，都是陈述句</li>
+</ul>
+</li>
+<li><p><strong>指令跟随微调</strong></p>
+<ul>
+<li>能让模型的输出更符合我们的意图）</li>
+<li>将pretrained LLM指令微调成instructed LLM</li>
+</ul>
+<aside> 🔑 **Xtuner打包好的工具：指令跟随微调**
+
+</aside>
+
+<ul>
+<li>构建对话模板，进行角色指定：将问题部分指定给user，将答案指定给assistant，给模型一个定位system</li>
+<li>输入模型，计算答案assistant部分损失</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<aside> 👉 **Xtuner使用的微调原理：LoRA&QLoRA**
+
+</aside>
+
+<ul>
+<li>Stable diffusion：不同的LoRA能够出不同的风格和人物</li>
+<li><strong>为什么要使用LoRA？什么是LoRA？</strong> 如果对整个模型的所有参数Linear都进行调整需要很大的显存，使用LoRA方法在原本的Linear旁新增一个分支，包含连续的两个小Linear（叫做Adapter），就能减少参数和显存开销。</li>
+<li>全参数微调   VS  LoRA   VS   QLoRA QLoRA使用4-bit模型加载器，不那么精确的加载模型。参数优化器能够在CPU和GPU之间调度。</li>
+</ul>
+
+        
+      </div>
+
+         
     </div>
     
-    
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2024</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">6 articles</div>
-        </div>
-      
-      <a class="archive-article-link" href="/poster/da5283fb.html" title="lesson4-XTuner 大模型单卡低成本微调实战">
-        <div class="date">01-20</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    lesson4-XTuner 大模型单卡低成本微调实战
-                
-            </div>
-        </div>
-        <div class="tags">
-            #书生浦语大模型实战营
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/poster/8e7b9ade.html" title="lesson3作业">
-        <div class="date">01-14</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    lesson3作业
-                
-            </div>
-        </div>
-        <div class="tags">
-            #书生浦语大模型实战营
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/poster/dd86f549.html" title="lesson3_基于 InternLM 和 LangChain 搭建自己的知识库">
-        <div class="date">01-14</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    lesson3_基于 InternLM 和 LangChain 搭建自己的知识库
-                
-            </div>
-        </div>
-        <div class="tags">
-            #书生浦语大模型实战营
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/poster/280c916a.html" title="lesson2作业">
-        <div class="date">01-11</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    lesson2作业
-                
-            </div>
-        </div>
-        <div class="tags">
-            #书生浦语大模型实战营
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/poster/89484759.html" title="lesson2_试试demo">
-        <div class="date">01-11</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    lesson2_试试demo
-                
-            </div>
-        </div>
-        <div class="tags">
-            #书生浦语大模型实战营
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/poster/a8a37251.html" title="lesson1_书生浦语大模型全链路开源体系">
-        <div class="date">01-10</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    lesson1_书生浦语大模型全链路开源体系
-                
-            </div>
-        </div>
-        <div class="tags">
-            #书生浦语大模型实战营
-        </div>
-      </a>
-    
+     
   </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/poster/28e988a7.html"
+      title="410-分割数组的最大值"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        410-分割数组的最大值
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/poster/3ab29489.html"
+      title="2788-按分隔符拆分字符串"
+     >
+
+    <p class="title-text">
+      
+        2788-按分隔符拆分字符串
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">Comments </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+
+
+
     </div>
     <div id="footer-wrapper">
       <footer id="footer">
