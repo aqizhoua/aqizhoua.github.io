@@ -47,7 +47,7 @@ def copy_html_files_and_generate_index(source_dir, dest_dir,lesson_name):
         f_index.write("</ul>\n</div>\n</body>\n</html>")
 
 if __name__ == '__main__':
-    source_dir = r'D:\极客时间\156-动态规划面试宝典（完结）'
+    source_dir = r'D:\极客时间\MySQL实战45讲'
 
     lesson_name = os.path.basename(source_dir).split("-")[-1]
     dest_dir = fr'D:\hexo\source\geek\{lesson_name}'
