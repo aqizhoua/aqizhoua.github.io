@@ -27,11 +27,17 @@
 <meta property="og:site_name" content="aqizhoua">
 <meta property="og:description" content="在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的RAG。本节课中，我们主要学习第二种范式，Finetune，并使用XTuner基于InternLM进行单卡微调。在普通的学习中，LLM没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。XTuner是打包好的微调工具箱，它的微调原理是LoRA&amp;QLoRA，能够减少显">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/1.htszjh48y0o.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/2.51mblfkfg0k0.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/3.20ps3yrg6zpc.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/4.7by36umhqxo0.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/5.6qpwqotskeg0.webp">
 <meta property="article:published_time" content="2024-01-20T05:26:38.000Z">
-<meta property="article:modified_time" content="2024-01-21T05:34:26.869Z">
+<meta property="article:modified_time" content="2024-02-20T15:08:23.349Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="书生浦语大模型实战营">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/1.htszjh48y0o.webp">
   
   
     <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
@@ -164,6 +170,11 @@
       <h3 class="widget-title">Archives</h3>
       
       
+        <a class="archive-link" href="/archives/2024/02 ">
+          February 2024 
+          <div class="archive-count">1 </div>
+        </a>
+      
         <a class="archive-link" href="/archives/2024/01 ">
           January 2024 
           <div class="archive-count">14 </div>
@@ -184,6 +195,12 @@
     <div class="widget">
       <h3 class="widget-title">Recent Posts</h3>
       <ul>
+        
+          <a class="recent-link" href="/poster/7c2a4ef3.html" title="1690. 石子游戏 VII" >
+            <div class="recent-link-text">
+              1690. 石子游戏 VII
+            </div>
+          </a>
         
           <a class="recent-link" href="/poster/2b0ec29a.html" title="2808. 使循环数组所有元素相等的最少秒数" >
             <div class="recent-link-text">
@@ -206,12 +223,6 @@
           <a class="recent-link" href="/poster/da5283fb.html" title="lesson4-XTuner 大模型单卡低成本微调实战" >
             <div class="recent-link-text">
               lesson4-XTuner 大模型单卡低成本微调实战
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/poster/3ab29489.html" title="2788-按分隔符拆分字符串" >
-            <div class="recent-link-text">
-              2788-按分隔符拆分字符串
             </div>
           </a>
         
@@ -259,7 +270,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.2k words 
+            12k words 
           </div>
         </div>
         
@@ -268,7 +279,7 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的<code>RAG</code>。本节课中，我们主要学习第二种范式，<code>Finetune</code>，并使用<code>XTuner</code>基于<code>InternLM</code>进行单卡微调。在普通的学习中，<code>LLM</code>没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。<code>XTuner</code>是打包好的微调工具箱，它的微调原理是<code>LoRA</code>&amp;<code>QLoRA</code>，能够减少显存占用，使开发者专注数据内容而不是格式。（引自：<a target="_blank" rel="noopener" href="https://broadleaf-gemini-274.notion.site/Lecture4-XTuner-d6399774b18f4818ba8eeb1eceaf7a08）">https://broadleaf-gemini-274.notion.site/Lecture4-XTuner-d6399774b18f4818ba8eeb1eceaf7a08）</a></p>
+          <p>在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的<code>RAG</code>。本节课中，我们主要学习第二种范式，<code>Finetune</code>，并使用<code>XTuner</code>基于<code>InternLM</code>进行单卡微调。在普通的学习中，<code>LLM</code>没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。<code>XTuner</code>是打包好的微调工具箱，它的微调原理是<code>LoRA</code>&amp;<code>QLoRA</code>，能够减少显存占用，使开发者专注数据内容而不是格式。</p>
 <h1 id="XTuner概述"><a href="#XTuner概述" class="headerlink" title="XTuner概述"></a>XTuner概述</h1><h2 id="Finetune"><a href="#Finetune" class="headerlink" title="Finetune"></a>Finetune</h2><p><code>Finetune</code>是大模型常见的两种范式之一，它的核心：在已有数据集上微调</p>
 <ul>
 <li>可以进行更多<strong>个性化</strong>微调，以满足用户需求。</li>
@@ -277,12 +288,11 @@
 </ul>
 <h2 id="LLM"><a href="#LLM" class="headerlink" title="LLM"></a>LLM</h2><p><code>LLM</code>就是大语言模型的统称。我们知道，<code>LangChain</code>封装了很多组件，通过将这些组件组合，一个<code>chain</code>能够封装一系列的<code>LLM</code>操作。</p>
 <h2 id="XTuner"><a href="#XTuner" class="headerlink" title="XTuner"></a>XTuner</h2><p><code>XTuner</code>是打包好的微调工具箱，支持<code>Huggingface</code>和<code>modelscope</code>加载模型和数据集。支持多款开源大模型<code>InternLM</code>，阿里千问，百川大模型，清华<code>Chatglm</code>，多专家模型等，加速算法等等都有。</p>
-<h1 id="微调框架Xtuner原理"><a href="#微调框架Xtuner原理" class="headerlink" title="微调框架Xtuner原理"></a>微调框架Xtuner原理</h1><aside> 📎 **Finetune简介：**
-
-</aside>
-
+<h1 id="微调框架Xtuner原理"><a href="#微调框架Xtuner原理" class="headerlink" title="微调框架Xtuner原理"></a>微调框架Xtuner原理</h1><h2 id="Finetune简介"><a href="#Finetune简介" class="headerlink" title="Finetune简介"></a>Finetune简介</h2><ul>
+<li><p><strong>为什么要微调大语言模型？</strong> </p>
 <ul>
-<li><p><strong>为什么要微调大语言模型？</strong> 在普通的学习中，LLM没办法很好的应用于具体的实际和板块，需要微调来定制！</p>
+<li>在普通的学习中，LLM没办法很好的应用于具体的实际和板块，需要微调来定制！</li>
+</ul>
 </li>
 <li><p>常见的两种微调策略（训练数据的处理）：</p>
 <ul>
@@ -294,14 +304,9 @@
 </li>
 <li><p><strong>指令跟随微调</strong></p>
 <ul>
-<li>能让模型的输出更符合我们的意图）</li>
+<li>能让模型的输出更符合我们的意图</li>
 <li>将pretrained LLM指令微调成instructed LLM</li>
-</ul>
-<aside> 🔑 **Xtuner打包好的工具：指令跟随微调**
-
-</aside>
-
-<ul>
+<li>Xtuner打包好的工具：指令跟随微调<ul>
 <li>构建对话模板，进行角色指定：将问题部分指定给user，将答案指定给assistant，给模型一个定位system</li>
 <li>输入模型，计算答案assistant部分损失</li>
 </ul>
@@ -309,15 +314,342 @@
 </ul>
 </li>
 </ul>
-<aside> 👉 **Xtuner使用的微调原理：LoRA&QLoRA**
-
-</aside>
-
-<ul>
-<li>Stable diffusion：不同的LoRA能够出不同的风格和人物</li>
-<li><strong>为什么要使用LoRA？什么是LoRA？</strong> 如果对整个模型的所有参数Linear都进行调整需要很大的显存，使用LoRA方法在原本的Linear旁新增一个分支，包含连续的两个小Linear（叫做Adapter），就能减少参数和显存开销。</li>
-<li>全参数微调   VS  LoRA   VS   QLoRA QLoRA使用4-bit模型加载器，不那么精确的加载模型。参数优化器能够在CPU和GPU之间调度。</li>
+</li>
 </ul>
+<h2 id="Xtuner使用的微调原理：LoRA-amp-QLoRA"><a href="#Xtuner使用的微调原理：LoRA-amp-QLoRA" class="headerlink" title="Xtuner使用的微调原理：LoRA&amp;QLoRA"></a>Xtuner使用的微调原理：LoRA&amp;QLoRA</h2><ul>
+<li><p>Stable diffusion：不同的LoRA能够出不同的风格和人物</p>
+</li>
+<li><p><strong>为什么要使用LoRA？什么是LoRA？</strong> 如果对整个模型的所有参数Linear都进行调整需要很大的显存，使用LoRA方法在原本的Linear旁新增一个分支，包含连续的两个小Linear（叫做Adapter），就能减少参数和显存开销。</p>
+</li>
+<li><p>全参数微调   VS  LoRA   VS   QLoRA QLoRA使用4-bit模型加载器，不那么精确的加载模型。参数优化器能够在CPU和GPU之间调度。</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/1.htszjh48y0o.webp" alt></p>
+<h1 id="Xtuner微调工作流程"><a href="#Xtuner微调工作流程" class="headerlink" title="Xtuner微调工作流程"></a>Xtuner微调工作流程</h1><p>Xtuner有强大的数据处理引擎，使开发者专注数据内容而不是格式</p>
+<p><strong>数据处理流程：</strong></p>
+<p>1、原始问答对，格式化（数据集映射函数）</p>
+<p>2、格式化问答对，可训练（对话模板映射函数）</p>
+<p><strong>多数据样本拼接</strong></p>
+<h1 id="实战：使用XTuner单卡微调属于自己的开源模型（以InternLM为基底）"><a href="#实战：使用XTuner单卡微调属于自己的开源模型（以InternLM为基底）" class="headerlink" title="实战：使用XTuner单卡微调属于自己的开源模型（以InternLM为基底）"></a>实战：使用XTuner单卡微调属于自己的开源模型（以InternLM为基底）</h1><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/root/share/install_conda_env_internlm_base.sh xtuner0.1.9</span><br><span class="line"></span><br><span class="line">conda activate xtuner0.1.9</span><br><span class="line"></span><br><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">mkdir xtuner019 &amp;&amp; cd xtuner019</span><br><span class="line"></span><br><span class="line"># 拉取 0.1.9 的版本源码</span><br><span class="line">git clone -b v0.1.9  https://github.com/InternLM/xtuner</span><br><span class="line"># 无法访问github的用户请从 gitee 拉取:</span><br><span class="line"># git clone -b v0.1.9 https://gitee.com/Internlm/xtuner</span><br><span class="line"></span><br><span class="line"># 进入源码目录</span><br><span class="line">cd xtuner</span><br><span class="line"></span><br><span class="line"># 从源码安装 XTuner</span><br><span class="line">pip install -e &#x27;.[all]&#x27;</span><br></pre></td></tr></table></figure>
+<p>准备在 oasst1 数据集上微调 internlm-7b-chat</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个微调 oasst1 数据集的工作路径，进入</span><br><span class="line">mkdir ~/ft-oasst1 &amp;&amp; cd ~/ft-oasst1</span><br></pre></td></tr></table></figure>
+<h2 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h2><h4 id="准备配置文件"><a href="#准备配置文件" class="headerlink" title="准备配置文件"></a>准备配置文件</h4><p>XTuner 提供多个开箱即用的配置文件，用户可以通过下列命令查看：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 列出所有内置配置</span><br><span class="line">xtuner list-cfg</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/2.51mblfkfg0k0.webp" alt></p>
+<p>拷贝一个配置文件到当前目录：<br><code># xtuner copy-cfg $&#123;CONFIG_NAME&#125; $&#123;SAVE_PATH&#125;</code></p>
+<p>在本案例中即：（注意最后有个英文句号，代表复制到当前路径）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/ft-oasst1</span><br><span class="line">xtuner copy-cfg internlm_chat_7b_qlora_oasst1_e3 .</span><br></pre></td></tr></table></figure>
+<p>配置文件名的解释：</p>
+<blockquote>
+<p>xtuner copy-cfg internlm_chat_7b_qlora_oasst1_e3 .</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型名</th>
+<th>internlm_chat_7b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>使用算法</td>
+<td>qlora</td>
+</tr>
+<tr>
+<td>数据集</td>
+<td>oasst1</td>
+</tr>
+<tr>
+<td>把数据集跑几次</td>
+<td>跑3次：e3 (epoch 3 )</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>*无 chat比如 <code>internlm-7b</code> 代表是基座(base)模型</p>
+<h4 id="模型下载"><a href="#模型下载" class="headerlink" title="模型下载"></a>模型下载</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /share/temp/model_repos/internlm-chat-7b ~/ft-oasst1/</span><br></pre></td></tr></table></figure>
+<p>以上是通过软链的方式，将模型文件挂载到家目录下，优势是：</p>
+<ol>
+<li>节省拷贝时间，无需等待</li>
+<li>节省用户开发机存储空间</li>
+</ol>
+<blockquote>
+<p>当然，也可以用 <code>cp -r /share/temp/model_repos/internlm-chat-7b ~/ft-oasst1/</code> 进行数据拷贝。</p>
+</blockquote>
+<h4 id="数据集下载"><a href="#数据集下载" class="headerlink" title="数据集下载"></a>数据集下载</h4><h5 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h5><p>为了推动大规模对齐研究的民主化，产生了OpenAssistant Conversations（OASST1）数据集，这是一个<strong>人工生成、人工注释的助手式对话语料库</strong>，包含161,443个消息，涵盖35种不同的语言，标注了461,292个质量评分，共有超过10,000个完全标注的对话树。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/ft-oasst1</span><br><span class="line"><span class="comment"># ...-guanaco 后面有个空格和英文句号啊</span></span><br><span class="line"><span class="built_in">cp</span> -r /root/share/temp/datasets/openassistant-guanaco .</span><br></pre></td></tr></table></figure>
+<p>此时，当前路径的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- internlm-chat-7b -&gt; /share/temp/model_repos/internlm-chat-7b</span><br><span class="line">|-- internlm_chat_7b_qlora_oasst1_e3_copy.py</span><br><span class="line">`-- openassistant-guanaco</span><br><span class="line">    |-- openassistant_best_replies_eval.jsonl</span><br><span class="line">    `-- openassistant_best_replies_train.jsonl</span><br><span class="line"></span><br><span class="line">2 directories, 3 files</span><br></pre></td></tr></table></figure>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>修改其中的模型和数据集为 本地路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/ft-oasst1</span><br><span class="line">vim internlm_chat_7b_qlora_oasst1_e3_copy.py</span><br></pre></td></tr></table></figure>
+<p>减号代表要删除的行，加号代表要增加的行。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 修改模型为本地路径</span><br><span class="line"><span class="deletion">- pretrained_model_name_or_path = &#x27;internlm/internlm-chat-7b&#x27;</span></span><br><span class="line"><span class="addition">+ pretrained_model_name_or_path = &#x27;./internlm-chat-7b&#x27;</span></span><br><span class="line"></span><br><span class="line"># 修改训练数据集为本地路径</span><br><span class="line"><span class="deletion">- data_path = &#x27;timdettmers/openassistant-guanaco&#x27;</span></span><br><span class="line"><span class="addition">+ data_path = &#x27;./openassistant-guanaco&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>常用超参</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>data_path</strong></td>
+<td>数据路径或 HuggingFace 仓库名</td>
+</tr>
+<tr>
+<td>max_length</td>
+<td>单条数据最大 Token 数，超过则截断</td>
+</tr>
+<tr>
+<td>pack_to_max_length</td>
+<td>是否将多条短数据拼接到 max_length，提高 GPU 利用率</td>
+</tr>
+<tr>
+<td>accumulative_counts</td>
+<td>梯度累积，每多少次 backward 更新一次参数</td>
+</tr>
+<tr>
+<td>evaluation_inputs</td>
+<td>训练过程中，会根据给定的问题进行推理，便于观测训练状态</td>
+</tr>
+<tr>
+<td>evaluation_freq</td>
+<td>Evaluation 的评测间隔 iter 数</td>
+</tr>
+<tr>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>如果想把显卡的现存吃满，充分利用显卡资源，可以将 <code>max_length</code> 和 <code>batch_size</code> 这两个参数调大。</p>
+</blockquote>
+<h4 id="开始微调"><a href="#开始微调" class="headerlink" title="开始微调"></a>开始微调</h4><p><strong>训练：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xtuner train $&#123;CONFIG_NAME_OR_PATH&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>也可以增加 deepspeed 进行训练加速：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xtuner train $&#123;CONFIG_NAME_OR_PATH&#125; --deepspeed deepspeed_zero2</span><br></pre></td></tr></table></figure>
+<p>例如，我们可以利用 QLoRA 算法在 oasst1 数据集上微调 InternLM-7B：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单卡</span></span><br><span class="line"><span class="comment">## 用刚才改好的config文件训练</span></span><br><span class="line">xtuner train ./internlm_chat_7b_qlora_oasst1_e3_copy.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多卡</span></span><br><span class="line">NPROC_PER_NODE=<span class="variable">$&#123;GPU_NUM&#125;</span> xtuner train ./internlm_chat_7b_qlora_oasst1_e3_copy.py</span><br><span class="line"><span class="comment"># 若要开启 deepspeed 加速，增加 --deepspeed deepspeed_zero2 即可</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>微调得到的 PTH 模型文件和其他杂七杂八的文件都默认在当前的 <code>./work_dirs</code> 中。</p>
+</blockquote>
+<h4 id="工具：tmux学习"><a href="#工具：tmux学习" class="headerlink" title="工具：tmux学习"></a>工具：tmux学习</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#更新源</span><br><span class="line">apt update -y</span><br><span class="line">#安装tmux</span><br><span class="line">apt install tmux -y</span><br><span class="line">#在进入虚拟环境后，创建tmux新会话</span><br><span class="line">tmux new -s your-session-name</span><br><span class="line">#ctrl+B D 退出会话</span><br><span class="line">#重新进入tmux会话</span><br><span class="line">tmux a -t your-session-name</span><br></pre></td></tr></table></figure>
+<p>跑完训练后，当前路径：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/3.20ps3yrg6zpc.webp" alt="image-20240220221605919"></p>
+<p>将得到的 PTH 模型转换为 HuggingFace 模型，<strong>即：生成 Adapter 文件夹</strong></p>
+<p><code>xtuner convert pth_to_hf $&#123;CONFIG_NAME_OR_PATH&#125; $&#123;PTH_file_dir&#125; $&#123;SAVE_PATH&#125;</code></p>
+<p>在本示例中，为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hf</span><br><span class="line"><span class="built_in">export</span> MKL_SERVICE_FORCE_INTEL=1</span><br><span class="line"><span class="built_in">export</span> MKL_THREADING_LAYER=GNU</span><br><span class="line">xtuner convert pth_to_hf ./internlm_chat_7b_qlora_oasst1_e3_copy.py ./work_dirs/internlm_chat_7b_qlora_oasst1_e3_copy/epoch_1.pth ./hf</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/4.7by36umhqxo0.webp" alt></p>
+<p>此时，路径中应该长这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- hf</span><br><span class="line">|   |-- README.md</span><br><span class="line">|   |-- adapter_config.json</span><br><span class="line">|   |-- adapter_model.safetensors</span><br><span class="line">|   `-- xtuner_config.py</span><br><span class="line">|-- internlm-chat-7b -&gt; /share/temp/model_repos/internlm-chat-7b</span><br><span class="line">|-- internlm_chat_7b_qlora_oasst1_e3_copy.py</span><br><span class="line">|-- openassistant-guanaco</span><br><span class="line">|   |-- openassistant_best_replies_eval.jsonl</span><br><span class="line">|   `-- openassistant_best_replies_train.jsonl</span><br><span class="line">`-- work_dirs</span><br><span class="line">    `-- internlm_chat_7b_qlora_oasst1_e3_copy</span><br><span class="line">        |-- 20240220_163210</span><br><span class="line">        |   |-- 20240220_163210.<span class="built_in">log</span></span><br><span class="line">        |   `-- vis_data</span><br><span class="line">        |       |-- 20240220_163210.json</span><br><span class="line">        |       |-- config.py</span><br><span class="line">        |       `-- scalars.json</span><br><span class="line">        |-- epoch_1.pth</span><br><span class="line">        |   |-- bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt</span><br><span class="line">        |   `-- mp_rank_00_model_states.pt</span><br><span class="line">        |-- internlm_chat_7b_qlora_oasst1_e3_copy.py</span><br><span class="line">        |-- last_checkpoint</span><br><span class="line">        `-- zero_to_fp32.py</span><br></pre></td></tr></table></figure>
+<p><span style="color: red;"><strong>此时，hf 文件夹即为我们平时所理解的所谓 “LoRA 模型文件”</strong></span></p>
+<blockquote>
+<p>可以简单理解：LoRA 模型文件 = Adapter</p>
+</blockquote>
+<h3 id="部署与测试"><a href="#部署与测试" class="headerlink" title="部署与测试"></a>部署与测试</h3><h4 id="将-HuggingFace-adapter-合并到大语言模型："><a href="#将-HuggingFace-adapter-合并到大语言模型：" class="headerlink" title="将 HuggingFace adapter 合并到大语言模型："></a>将 HuggingFace adapter 合并到大语言模型：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xtuner convert merge ./internlm-chat-7b ./hf ./merged --max-shard-size 2GB</span><br><span class="line"><span class="comment"># xtuner convert merge \</span></span><br><span class="line"><span class="comment">#     $&#123;NAME_OR_PATH_TO_LLM&#125; \</span></span><br><span class="line"><span class="comment">#     $&#123;NAME_OR_PATH_TO_ADAPTER&#125; \</span></span><br><span class="line"><span class="comment">#     $&#123;SAVE_PATH&#125; \</span></span><br><span class="line"><span class="comment">#     --max-shard-size 2GB</span></span><br></pre></td></tr></table></figure>
+<h4 id="与合并后的模型对话："><a href="#与合并后的模型对话：" class="headerlink" title="与合并后的模型对话："></a>与合并后的模型对话：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加载 Adapter 模型对话（Float 16）</span></span><br><span class="line">xtuner chat ./merged --prompt-template internlm_chat</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 bit 量化加载</span></span><br><span class="line"><span class="comment"># xtuner chat ./merged --bits 4 --prompt-template internlm_chat</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/aqizhoua/picx-images-hosting@master/20240220/5.6qpwqotskeg0.webp" alt></p>
+<p><strong><code>xtuner chat</code></strong> <strong>的启动参数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>启动参数</th>
+<th>干哈滴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>—prompt-template</strong></td>
+<td>指定对话模板</td>
+</tr>
+<tr>
+<td>—system</td>
+<td>指定SYSTEM文本</td>
+</tr>
+<tr>
+<td>—system-template</td>
+<td>指定SYSTEM模板</td>
+</tr>
+<tr>
+<td>-<strong>-bits</strong></td>
+<td>LLM位数</td>
+</tr>
+<tr>
+<td>—bot-name</td>
+<td>bot名称</td>
+</tr>
+<tr>
+<td>—with-plugins</td>
+<td>指定要使用的插件</td>
+</tr>
+<tr>
+<td><strong>—no-streamer</strong></td>
+<td>是否启用流式传输</td>
+</tr>
+<tr>
+<td><strong>—lagent</strong></td>
+<td>是否使用lagent</td>
+</tr>
+<tr>
+<td>—command-stop-word</td>
+<td>命令停止词</td>
+</tr>
+<tr>
+<td>—answer-stop-word</td>
+<td>回答停止词</td>
+</tr>
+<tr>
+<td>—offload-folder</td>
+<td>存放模型权重的文件夹（或者已经卸载模型权重的文件夹）</td>
+</tr>
+<tr>
+<td>—max-new-tokens</td>
+<td>生成文本中允许的最大 <code>token</code> 数量</td>
+</tr>
+<tr>
+<td><strong>—temperature</strong></td>
+<td>温度值</td>
+</tr>
+<tr>
+<td>—top-k</td>
+<td>保留用于顶k筛选的最高概率词汇标记数</td>
+</tr>
+<tr>
+<td>—top-p</td>
+<td>如果设置为小于1的浮点数，仅保留概率相加高于 <code>top_p</code> 的最小一组最有可能的标记</td>
+</tr>
+<tr>
+<td>—seed</td>
+<td>用于可重现文本生成的随机种子</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="自定义微调"><a href="#自定义微调" class="headerlink" title="自定义微调"></a>自定义微调</h2><blockquote>
+<p>以 <strong><a target="_blank" rel="noopener" href="https://github.com/abachaa/Medication_QA_MedInfo2019">Medication QA</a></strong> <strong>数据集</strong>为例</p>
+</blockquote>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="场景需求"><a href="#场景需求" class="headerlink" title="场景需求"></a><strong>场景需求</strong></h4><p>   基于 InternLM-chat-7B 模型，用 MedQA 数据集进行微调，将其往<code>医学问答</code>领域对齐。</p>
+<h4 id="真实数据预览"><a href="#真实数据预览" class="headerlink" title="真实数据预览"></a><strong>真实数据预览</strong></h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What are ketorolac eye drops?（什么是酮咯酸滴眼液？）</td>
+<td>Ophthalmic   ketorolac is used to treat itchy eyes caused by allergies. It also is used to   treat swelling and redness (inflammation) that can occur after cataract   surgery. Ketorolac is in a class of medications called nonsteroidal   anti-inflammatory drugs (NSAIDs). It works by stopping the release of   substances that cause allergy symptoms and inflammation.</td>
+</tr>
+<tr>
+<td>What medicines raise blood sugar? （什么药物会升高血糖？）</td>
+<td>Some   medicines for conditions other than diabetes can raise your blood sugar   level. This is a concern when you have diabetes. Make sure every doctor you   see knows about all of the medicines, vitamins, or herbal supplements you   take. This means anything you take with or without a prescription. Examples include:     Barbiturates.     Thiazide diuretics.     Corticosteroids.     Birth control pills (oral contraceptives) and progesterone.     Catecholamines.     Decongestants that contain beta-adrenergic agents, such as pseudoephedrine.     The B vitamin niacin. The risk of high blood sugar from niacin lowers after you have taken it for a few months. The antipsychotic medicine olanzapine (Zyprexa).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h3><blockquote>
+<p><strong>以</strong> <strong><a target="_blank" rel="noopener" href="https://github.com/abachaa/Medication_QA_MedInfo2019">Medication QA</a></strong> <strong>数据集为例</strong></p>
+</blockquote>
+<p><strong>原格式：(.xlsx)</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/InternLM/tutorial/blob/main/xtuner/MedQA2019.xlsx">https://github.com/InternLM/tutorial/blob/main/xtuner/MedQA2019.xlsx</a></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>问题</strong></th>
+<th>药物类型</th>
+<th>问题类型</th>
+<th><strong>回答</strong></th>
+<th>主题</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aaa</td>
+<td>bbb</td>
+<td>ccc</td>
+<td>ddd</td>
+<td>eee</td>
+<td>fff</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="将数据转为-XTuner-的数据格式"><a href="#将数据转为-XTuner-的数据格式" class="headerlink" title="将数据转为 XTuner 的数据格式"></a>将数据转为 XTuner 的数据格式</h4><p><strong>目标格式：(.jsonL)</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;conversation&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;system&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;input&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;output&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;conversation&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;system&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;input&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;output&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<p>🧠通过 python 脚本：将 <code>.xlsx</code> 中的 问题 和 回答 两列 提取出来，再放入 <code>.jsonL</code> 文件的每个 conversation 的 input 和 output 中。</p>
+<blockquote>
+<p>这一步的 python 脚本可以请 ChatGPT 来完成。</p>
+</blockquote>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Write a python file for me. using openpyxl. input file name is MedQA2019.xlsx</span><br><span class="line">Step1: The input file is .xlsx. Exact the column A and column D in the sheet named &quot;DrugQA&quot; .</span><br><span class="line">Step2: Put each value in column A into each &quot;input&quot; of each &quot;conversation&quot;. Put each value in column D into each &quot;output&quot; of each &quot;conversation&quot;.</span><br><span class="line">Step3: The output file is .jsonL. It looks like:</span><br><span class="line">[&#123;</span><br><span class="line">    &quot;conversation&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;system&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;input&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;output&quot;: &quot;xxx&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    &quot;conversation&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;system&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;input&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;output&quot;: &quot;xxx&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br><span class="line">Step4: All &quot;system&quot; value changes to &quot;You are a professional, highly experienced doctor professor. You always provide accurate, comprehensive, and detailed answers based on the patients&#x27; questions.&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ChatGPT 生成的 python 代码见<a target="_blank" rel="noopener" href="https://github.com/InternLM/tutorial/tree/main/xtuner/xlsx2jsonl.py">xlsx2jsonl.py</a></p>
+</blockquote>
+<p>执行 python 脚本，获得格式化后的数据集：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python xlsx2jsonl.py</span><br></pre></td></tr></table></figure>
+<p>此时，当然也可以对数据进行训练集和测试集的分割，同样可以让 ChatGPT 写 python 代码。当然如果没有严格的科研需求、不在乎“训练集泄露”的问题，也可以不做训练集与测试集的分割。</p>
+<h4 id="划分训练集和测试集"><a href="#划分训练集和测试集" class="headerlink" title="划分训练集和测试集"></a>划分训练集和测试集</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">my .jsonL file looks like:</span><br><span class="line">[&#123;</span><br><span class="line">    &quot;conversation&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;system&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;input&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;output&quot;: &quot;xxx&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    &quot;conversation&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;system&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;input&quot;: &quot;xxx&quot;,</span><br><span class="line">            &quot;output&quot;: &quot;xxx&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br><span class="line">Step1, read the .jsonL file.</span><br><span class="line">Step2, count the amount of the &quot;conversation&quot; elements.</span><br><span class="line">Step3, randomly split all &quot;conversation&quot; elements by 7:3. Targeted structure is same as the input.</span><br><span class="line">Step4, save the 7/10 part as train.jsonl. save the 3/10 part as test.jsonl</span><br></pre></td></tr></table></figure>
+<p>生成的python代码见 <a target="_blank" rel="noopener" href="https://github.com/InternLM/tutorial/blob/main/xtuner//split2train_and_test.py">split2train_and_test.py</a></p>
+<h3 id="开始自定义微调"><a href="#开始自定义微调" class="headerlink" title="开始自定义微调"></a>开始自定义微调</h3><p>此时，我们重新建一个文件夹来玩“微调自定义数据集”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/ft-medqa &amp;&amp; <span class="built_in">cd</span> ~/ft-medqa</span><br></pre></td></tr></table></figure>
+<p>把前面下载好的internlm-chat-7b模型文件夹拷贝过来。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ~/ft-oasst1/internlm-chat-7b .</span><br></pre></td></tr></table></figure>
+<p>别忘了把自定义数据集，即几个 <code>.jsonL</code>，也传到服务器上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/InternLM/tutorial</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ~/tutorial/xtuner/MedQA2019-structured-train.jsonl .</span><br></pre></td></tr></table></figure>
+<h4 id="准备配置文件-1"><a href="#准备配置文件-1" class="headerlink" title="准备配置文件"></a>准备配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制配置文件到当前目录</span></span><br><span class="line">xtuner copy-cfg internlm_chat_7b_qlora_oasst1_e3 .</span><br><span class="line"><span class="comment"># 改个文件名</span></span><br><span class="line"><span class="built_in">mv</span> internlm_chat_7b_qlora_oasst1_e3_copy.py internlm_chat_7b_qlora_medqa2019_e3.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件内容</span></span><br><span class="line">vim internlm_chat_7b_qlora_medqa2019_e3.py</span><br></pre></td></tr></table></figure>
+<p>减号代表要删除的行，加号代表要增加的行。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 修改import部分</span><br><span class="line"><span class="deletion">- from xtuner.dataset.map_fns import oasst1_map_fn, template_map_fn_factory</span></span><br><span class="line"><span class="addition">+ from xtuner.dataset.map_fns import template_map_fn_factory</span></span><br><span class="line"></span><br><span class="line"># 修改模型为本地路径</span><br><span class="line"><span class="deletion">- pretrained_model_name_or_path = &#x27;internlm/internlm-chat-7b&#x27;</span></span><br><span class="line"><span class="addition">+ pretrained_model_name_or_path = &#x27;./internlm-chat-7b&#x27;</span></span><br><span class="line"></span><br><span class="line"># 修改训练数据为 MedQA2019-structured-train.jsonl 路径</span><br><span class="line"><span class="deletion">- data_path = &#x27;timdettmers/openassistant-guanaco&#x27;</span></span><br><span class="line"><span class="addition">+ data_path = &#x27;MedQA2019-structured-train.jsonl&#x27;</span></span><br><span class="line"></span><br><span class="line"># 修改 train_dataset 对象</span><br><span class="line">train_dataset = dict(</span><br><span class="line">    type=process_hf_dataset,</span><br><span class="line"><span class="deletion">-   dataset=dict(type=load_dataset, path=data_path),</span></span><br><span class="line"><span class="addition">+   dataset=dict(type=load_dataset, path=&#x27;json&#x27;, data_files=dict(train=data_path)),</span></span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    max_length=max_length,</span><br><span class="line"><span class="deletion">-   dataset_map_fn=alpaca_map_fn,</span></span><br><span class="line"><span class="addition">+   dataset_map_fn=None,</span></span><br><span class="line">    template_map_fn=dict(</span><br><span class="line">        type=template_map_fn_factory, template=prompt_template),</span><br><span class="line">    remove_unused_columns=True,</span><br><span class="line">    shuffle_before_pack=True,</span><br><span class="line">    pack_to_max_length=pack_to_max_length)</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-2-XTuner！启动！"><a href="#3-3-2-XTuner！启动！" class="headerlink" title="3.3.2 XTuner！启动！"></a>3.3.2 <strong>XTuner！启动！</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xtuner train internlm_chat_7b_qlora_medqa2019_e3.py --deepspeed deepspeed_zero2</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-3-pth-转-huggingface"><a href="#3-3-3-pth-转-huggingface" class="headerlink" title="3.3.3 pth 转 huggingface"></a>3.3.3 pth 转 huggingface</h4><p>同前述，这里不赘述了。</p>
+<h4 id="3-3-4-部署与测试"><a href="#3-3-4-部署与测试" class="headerlink" title="3.3.4 部署与测试"></a>3.3.4 部署与测试</h4><p>同前述。</p>
+<h2 id="4【补充】用-MS-Agent-数据集-赋予-LLM-以-Agent-能力"><a href="#4【补充】用-MS-Agent-数据集-赋予-LLM-以-Agent-能力" class="headerlink" title="4【补充】用 MS-Agent 数据集 赋予 LLM 以 Agent 能力"></a>4【补充】用 MS-Agent 数据集 赋予 LLM 以 Agent 能力</h2><h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>MSAgent 数据集每条样本包含一个对话列表（conversations），其里面包含了 system、user、assistant 三种字段。其中：</p>
+<ul>
+<li><p>system: 表示给模型前置的人设输入，其中有告诉模型如何调用插件以及生成请求</p>
+</li>
+<li><p>user: 表示用户的输入 prompt，分为两种，通用生成的prompt和调用插件需求的 prompt</p>
+</li>
+<li><p>assistant: 为模型的回复。其中会包括插件调用代码和执行代码，调用代码是要 LLM 生成的，而执行代码是调用服务来生成结果的</p>
+</li>
+</ul>
+<p>一条调用网页搜索插件查询“上海明天天气”的数据样本示例。</p>
+<h4 id="4-2-1-准备工作"><a href="#4-2-1-准备工作" class="headerlink" title="4.2.1 准备工作"></a>4.2.1 准备工作</h4><blockquote>
+<p>xtuner 是从国内的 ModelScope 平台下载 MS-Agent 数据集，因此不用提前手动下载数据集文件。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 准备工作</span></span><br><span class="line"><span class="built_in">mkdir</span> ~/ft-msagent &amp;&amp; <span class="built_in">cd</span> ~/ft-msagent</span><br><span class="line"><span class="built_in">cp</span> -r ~/ft-oasst1/internlm-chat-7b .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置文件</span></span><br><span class="line">xtuner list-cfg | grep msagent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制配置文件到当前目录</span></span><br><span class="line">xtuner copy-cfg internlm_7b_qlora_msagent_react_e3_gpu8 .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件中的模型为本地路径</span></span><br><span class="line">vim ./internlm_7b_qlora_msagent_react_e3_gpu8_copy.py </span><br></pre></td></tr></table></figure>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- pretrained_model_name_or_path = &#x27;internlm/internlm-chat-7b&#x27;</span></span><br><span class="line"><span class="addition">+ pretrained_model_name_or_path = &#x27;./internlm-chat-7b&#x27;</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-2-2-开始微调"><a href="#4-2-2-开始微调" class="headerlink" title="4.2.2 开始微调"></a>4.2.2 开始微调</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xtuner train ./internlm_7b_qlora_msagent_react_e3_gpu8_copy.py --deepspeed deepspeed_zero2</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-直接使用"><a href="#4-3-直接使用" class="headerlink" title="4.3 直接使用"></a>4.3 直接使用</h3><blockquote>
+<p>由于 msagent 的训练非常费时，大家如果想尽快把这个教程跟完，可以直接从 modelScope 拉取咱们已经微调好了的 Adapter。如下演示。</p>
+</blockquote>
+<h4 id="4-3-1-下载-Adapter"><a href="#4-3-1-下载-Adapter" class="headerlink" title="4.3.1 下载 Adapter"></a>4.3.1 下载 Adapter</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/ft-msagent</span><br><span class="line">apt install git git-lfs</span><br><span class="line">git lfs install</span><br><span class="line">git lfs <span class="built_in">clone</span> https://www.modelscope.cn/xtuner/internlm-7b-qlora-msagent-react.git</span><br></pre></td></tr></table></figure>
+<p>OK，现在目录应该长这样：</p>
+<ul>
+<li>internlm_7b_qlora_msagent_react_e3_gpu8_copy.py</li>
+<li>internlm-7b-qlora-msagent-react</li>
+<li>internlm-chat-7b</li>
+<li>work_dir（可有可无）</li>
+</ul>
+<p>有了这个在 msagent 上训练得到的Adapter，模型现在已经有 agent 能力了！就可以加 —lagent 以调用来自 lagent 的代理功能了！</p>
+<h4 id="4-3-2-添加-serper-环境变量"><a href="#4-3-2-添加-serper-环境变量" class="headerlink" title="4.3.2 添加 serper 环境变量"></a>4.3.2 添加 serper 环境变量</h4><blockquote>
+<p><strong>开始 chat 之前，还要加个 serper 的环境变量：</strong></p>
+<p>去 serper.dev 免费注册一个账号，生成自己的 api key。这个东西是用来给 lagent 去获取 google 搜索的结果的。等于是 serper.dev 帮你去访问 google，而不是从你自己本地去访问 google 了。</p>
+</blockquote>
+<p>添加 serper api key 到环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SERPER_API_KEY=abcdefg</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-3-xtuner-agent，启动！"><a href="#4-3-3-xtuner-agent，启动！" class="headerlink" title="4.3.3 xtuner + agent，启动！"></a>4.3.3 xtuner + agent，启动！</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xtuner chat ./internlm-chat-7b --adapter internlm-7b-qlora-msagent-react --lagent</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://github.com/InternLM/tutorial/blob/main/xtuner/README.md">https://github.com/InternLM/tutorial/blob/main/xtuner/README.md</a></p>
+<p><a target="_blank" rel="noopener" href="https://broadleaf-gemini-274.notion.site/Lecture4-XTuner-d6399774b18f4818ba8eeb1eceaf7a08">https://broadleaf-gemini-274.notion.site/Lecture4-XTuner-d6399774b18f4818ba8eeb1eceaf7a08</a></p>
 
         
       </div>

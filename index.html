@@ -159,6 +159,11 @@
       <h3 class="widget-title">Archives</h3>
       
       
+        <a class="archive-link" href="/archives/2024/02 ">
+          February 2024 
+          <div class="archive-count">1 </div>
+        </a>
+      
         <a class="archive-link" href="/archives/2024/01 ">
           January 2024 
           <div class="archive-count">14 </div>
@@ -179,6 +184,12 @@
     <div class="widget">
       <h3 class="widget-title">Recent Posts</h3>
       <ul>
+        
+          <a class="recent-link" href="/poster/7c2a4ef3.html" title="1690. 石子游戏 VII" >
+            <div class="recent-link-text">
+              1690. 石子游戏 VII
+            </div>
+          </a>
         
           <a class="recent-link" href="/poster/2b0ec29a.html" title="2808. 使循环数组所有元素相等的最少秒数" >
             <div class="recent-link-text">
@@ -204,12 +215,6 @@
             </div>
           </a>
         
-          <a class="recent-link" href="/poster/3ab29489.html" title="2788-按分隔符拆分字符串" >
-            <div class="recent-link-text">
-              2788-按分隔符拆分字符串
-            </div>
-          </a>
-        
       </ul>
     </div>
   </div>
@@ -220,6 +225,78 @@
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-1690. 石子游戏 VII" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/poster/7c2a4ef3.html">1690. 石子游戏 VII</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-02-03T16:01:27.832Z" itemprop="datePublished">2024-02-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/leetcode/">leetcode</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2k words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              https://leetcode.cn/problems/stone-game-vii/description/
+解答12345678910111213141516171819202122232425class Solution &#123;public:    int stoneGameVII(vector&lt;int&gt;&amp; stones) &#123;        int n = stones.size();        vector&lt;int&gt; sum(n + 1);        vector&lt;vector&lt;int&gt;&gt; memo(n, vector&lt;int&gt;(n, 0));        for (int i = 0; i &lt; n; i++) &#123;            sum[i + 1] = sum[i] + stones[i];        &#125;        function&lt;int(int, int)&gt; dfs = [&amp;](int i, int j) -&...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/poster/7c2a4ef3.html" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
    
 
 
@@ -469,7 +546,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.2k words 
+            12k words 
           </div>
         </div>
         
@@ -480,12 +557,15 @@
         
           <div class="truncate-text">
             
-              在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的RAG。本节课中，我们主要学习第二种范式，Finetune，并使用XTuner基于InternLM进行单卡微调。在普通的学习中，LLM没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。XTuner是打包好的微调工具箱，它的微调原理是LoRA&amp;QLoRA，能够减少显存占用，使开发者专注数据内容而不是格式。（引自：https://broadleaf-gemini-274.notion.site/Lecture4-XTuner-d6399774b18f4818ba8eeb1eceaf7a08）
+              在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的RAG。本节课中，我们主要学习第二种范式，Finetune，并使用XTuner基于InternLM进行单卡微调。在普通的学习中，LLM没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。XTuner是打包好的微调工具箱，它的微调原理是LoRA&amp;QLoRA，能够减少显存占用，使开发者专注数据内容而不是格式。
 XTuner概述FinetuneFinetune是大模型常见的两种范式之一，它的核心：在已有数据集上微调
 
 可以进行更多个性化微调，以满足用户需求。
 需要在新的数据集上进行训练，这可能会导致成本上升。然而，这也意味着模型可以更好地适应不断变化的环境。
-需要注意的是，由于训练成本较高，模型的更新可能不是实时的，但我们可以定期进行更新以确保其性能始终保持在最佳状态。...
+需要注意的是，由于训练成本较高，模型的更新可能不是实时的，但我们可以定期进行更新以确保其性能始终保持在最佳状态。
+
+LLMLLM就是大语言模型的统称。我们知道，LangChain封装了很多组件，通过将这些组件组合，一个chain能够封装一系列的LLM操作。
+XTunerXTuner是打包好的微调工具...
             
           </div>
         
@@ -915,82 +995,6 @@ LangChain简介LangChain含义...
     <a class="right-panel  non-pic  "
       
       href="/poster/dd86f549.html" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-   
-
-
-<article id="post-卡尔曼滤波器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/poster/5b298b12.html">卡尔曼滤波器</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-01-13T15:15:33.000Z" itemprop="datePublished">2024-01-13</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/MOT%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">MOT经典算法</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            4.2k words 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOT/" rel="tag">MOT</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              在网上看了不少与卡尔曼滤波相关的博客、论文，要么是只谈理论、缺乏感性，或者有感性认识，缺乏理论推导。能兼顾二者的少之又少，直到我看到了国外的一篇博文，真的惊艳到我了，不得不佩服作者这种细致入微的精神，翻译过来跟大家分享一下。
-原文链接http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/
-https://blog.csdn.net/u010720661/article/details/63253509
-https://www.cnblogs.com/guochaoxxl/p/15745113.html
-　　我不得不说说卡尔曼滤波，因为它能做到的事情简直让人惊叹！意外的是很少有软件工程师和科学家对对它有所了解，这让我感到沮丧，因为卡尔曼滤波是一个如此强大的工具，能够在不确定性中融合信息，与此同时，它提取精确信息的能力看起来不可思议。
-什么是卡尔曼滤波？　　你可以在任何含有不确定信息的动态系统中使用卡尔曼滤波，对系统下一步的走向做出有根据的预测，即使伴随着各种干扰，卡尔曼滤波总是能指出真实发生的情况。　　在连续变化的...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/poster/5b298b12.html" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
