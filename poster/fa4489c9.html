@@ -14,24 +14,33 @@
   
 
   
-  <title>2788-按分隔符拆分字符串 | aqizhoua</title>
+  <title>lesson6_OpenCompass大模型测评 | aqizhoua</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;split-strings-by-separator&#x2F;description&#x2F; 解答12345678910111213141516class Solution &#123;public:    vector&lt;string&gt; splitWordsBySeparator(vector&lt;string&gt;&amp; words">
+  <meta name="description" content="Lecture6 OpenCompass大模型测评在Lecture6中，主要讲了三个部分：大模型评测的意义，OpenCompass工具介绍和OpenCompass实战。 一、为什么要进行模型的评测❓ 为什么要评测  LLM在不同场景中需要不同的评测方式。 为了避免对普通用户产生误导，我们需要一个公平的评测方法。 开发者可以通过评测了解模型的能力边界，并提升模型的质量。 在法律、医疗、社会安全等领域">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2788-按分隔符拆分字符串">
-<meta property="og:url" content="https://aqizhoua.github.io/poster/3ab29489.html">
+<meta property="og:title" content="lesson6_OpenCompass大模型测评">
+<meta property="og:url" content="https://aqizhoua.github.io/poster/fa4489c9.html">
 <meta property="og:site_name" content="aqizhoua">
-<meta property="og:description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;split-strings-by-separator&#x2F;description&#x2F; 解答12345678910111213141516class Solution &#123;public:    vector&lt;string&gt; splitWordsBySeparator(vector&lt;string&gt;&amp; words">
+<meta property="og:description" content="Lecture6 OpenCompass大模型测评在Lecture6中，主要讲了三个部分：大模型评测的意义，OpenCompass工具介绍和OpenCompass实战。 一、为什么要进行模型的评测❓ 为什么要评测  LLM在不同场景中需要不同的评测方式。 为了避免对普通用户产生误导，我们需要一个公平的评测方法。 开发者可以通过评测了解模型的能力边界，并提升模型的质量。 在法律、医疗、社会安全等领域">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-01-20T02:37:44.000Z">
-<meta property="article:modified_time" content="2024-01-20T02:40:02.821Z">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F4d16d101-a5c5-4b19-8cc3-a6dad588ae89%2FUntitled.png?table=block&amp;id=e8686695-bab2-45cd-92da-51073fb26e21&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2Fb20bfc26-a1c5-434a-9f94-370a9cff558d%2FUntitled.png?table=block&amp;id=574e1236-28ca-47b2-abde-7a2747434643&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F0c46aefc-0151-47fa-b428-ecc41229e35d%2FUntitled.png?table=block&amp;id=7d1bc1e9-7669-4d17-b299-4eb7a8a43c4d&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F1f490bfa-e2a0-405d-852d-62024179eabf%2FUntitled.png?table=block&amp;id=a2ea387e-cdbc-4091-831f-34d392aceb89&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F7da7bbc0-34db-410b-b54f-703f09c8bcf6%2FUntitled.png?table=block&amp;id=6e892498-eaee-4943-8456-3518607a0f9e&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=1950&amp;userId=&amp;cache=v2">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2Fbb18f2c1-cc6e-4c05-b4f9-03c34fa6d486%2FUntitled.png?table=block&amp;id=c5f8a017-9b97-430e-98f6-3cf67dfcf61e&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=1830&amp;userId=&amp;cache=v2">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F0f8d2f12-ddeb-4ad9-8cfe-54d9b66b0f88%2FUntitled.png?table=block&amp;id=1478c889-cf18-4e39-9503-756b96b7b227&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2">
+<meta property="og:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F60e768ac-0922-4189-8344-5ee83953d246%2FUntitled.png?table=block&amp;id=ae88c142-cbca-42b9-9b4e-53dfa19206d1&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=1910&amp;userId=&amp;cache=v2">
+<meta property="article:published_time" content="2024-02-21T10:17:32.000Z">
+<meta property="article:modified_time" content="2024-02-21T11:01:04.859Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="每日一题">
+<meta property="article:tag" content="书生浦语大模型实战营">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F4d16d101-a5c5-4b19-8cc3-a6dad588ae89%2FUntitled.png?table=block&amp;id=e8686695-bab2-45cd-92da-51073fb26e21&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2">
   
   
     <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
@@ -232,7 +241,7 @@
        
 
 
-<article id="post-2788-按分隔符拆分字符串" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-lesson6-OpenCompass大模型测评" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -245,7 +254,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        2788-按分隔符拆分字符串
+        lesson6_OpenCompass大模型测评
       </h1>
     
   
@@ -253,55 +262,75 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-01-20T02:37:44.000Z" itemprop="datePublished">2024-01-20</time>
+  <time class="dt-published" datetime="2024-02-21T10:17:32.000Z" itemprop="datePublished">2024-02-21</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/leetcode/">leetcode</a>
+  <a class="meta-cate-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.5k words 
+            966 words 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A5/" rel="tag">书生浦语大模型实战营</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/split-strings-by-separator/description/">https://leetcode.cn/problems/split-strings-by-separator/description/</a></p>
-<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; splitWordsBySeparator(vector&lt;string&gt;&amp; words, char separator) &#123;</span><br><span class="line">        vector&lt;string&gt; res;       </span><br><span class="line">        for (string&amp; word : words) &#123;</span><br><span class="line">            stringstream ss(word);</span><br><span class="line">            string sub;</span><br><span class="line">            while (getline(ss, sub, separator)) &#123;</span><br><span class="line">                if (sub != &quot;&quot;) &#123;</span><br><span class="line">                    res.push_back(sub);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>这段代码定义了一个 <code>Solution</code> 类和它的成员函数 <code>splitWordsBySeparator</code>。这个函数的目的是将一个字符串向量 <code>words</code> 中的每个字符串按照给定的分隔符 <code>separator</code> 分割，并将分割后的所有子字符串存储到一个新的向量 <code>res</code> 中。</p>
-<p>让我们逐行解释这个函数：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;string&gt; <span class="title">splitWordsBySeparator</span><span class="params">(vector&lt;string&gt;&amp; words, <span class="type">char</span> separator)</span> </span>&#123;</span><br></pre></td></tr></table></figure>
-<p>这是 <code>splitWordsBySeparator</code> 函数的声明，它接收一个字符串向量的引用 <code>words</code> 和一个字符 <code>separator</code> 作为参数，并返回一个字符串向量。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; res;</span><br></pre></td></tr></table></figure>
-<p>定义一个字符串向量 <code>res</code>，用于存储分割后的子字符串。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (string &amp;word : words) &#123;</span><br></pre></td></tr></table></figure>
-<p>使用基于范围的 <code>for</code> 循环遍历输入的 <code>words</code> 向量中的每个字符串。循环体中的 <code>word</code> 是对 <code>words</code> 中字符串的引用。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">stringstream <span class="title">ss</span><span class="params">(word)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>创建一个 <code>stringstream</code> 对象 <code>ss</code>，用于处理 <code>word</code> 字符串的分割。<code>stringstream</code> 是C++标准库中的一个非常有用的类，它允许你将字符串当作流来处理，这样可以方便地进行字符串的读取和转换操作。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string sub;</span><br></pre></td></tr></table></figure>
-<p>定义一个字符串 <code>sub</code>，用于存储从 <code>word</code> 中分割出来的每个子字符串。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="built_in">getline</span>(ss, sub, separator)) &#123;</span><br></pre></td></tr></table></figure>
-<p>使用 <code>while</code> 循环和 <code>getline</code> 函数读取 <code>ss</code> 中的内容到 <code>sub</code>，直到遇到分隔符 <code>separator</code>。<code>getline</code> 是一个标准库函数，可以从输入流中读取数据直到遇到指定的分隔符，并将读取的数据存储在第二个参数指定的字符串中。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!sub.<span class="built_in">empty</span>()) &#123;</span><br></pre></td></tr></table></figure>
-<p>如果 <code>sub</code> 不是空字符串，则执行下一步。这是为了避免将空字符串加入到结果向量中，空字符串可能会在源字符串的开头、结尾或者分隔符连续出现的情况下产生。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="built_in">push_back</span>(sub);</span><br></pre></td></tr></table></figure>
-<p>将非空的 <code>sub</code> 添加到结果向量 <code>res</code> 中。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这两个括号闭合了 <code>if</code> 条件语句和 <code>while</code> 循环。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>闭合 <code>for</code> 循环。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> res;</span><br></pre></td></tr></table></figure>
-<p>函数返回包含所有分割出的子字符串的向量 <code>res</code>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>闭合 <code>splitWordsBySeparator</code> 函数的定义。</p>
-<p>这个函数的实现使用了标准库中的 <code>stringstream</code> 和 <code>getline</code> 来有效地执行字符串分割操作。它避免了手动遍历和处理字符串中每个字符的复杂性，显著简化了代码。</p>
+          <h1 id="Lecture6-OpenCompass大模型测评"><a href="#Lecture6-OpenCompass大模型测评" class="headerlink" title="Lecture6 OpenCompass大模型测评"></a>Lecture6 OpenCompass大模型测评</h1><p>在<a target="_blank" rel="noopener" href="https://github.com/InternLM/tutorial/blob/main/opencompass/opencompass_tutorial.md">Lecture6</a>中，主要讲了三个部分：大模型评测的意义，OpenCompass工具介绍和OpenCompass实战。</p>
+<h2 id="一、为什么要进行模型的评测"><a href="#一、为什么要进行模型的评测" class="headerlink" title="一、为什么要进行模型的评测"></a>一、为什么要进行模型的评测</h2><p>❓ <strong>为什么要评测</strong></p>
+<ul>
+<li>LLM在不同场景中需要不同的评测方式。</li>
+<li>为了避免对<strong>普通用户</strong>产生误导，我们需要一个公平的评测方法。</li>
+<li><strong>开发者</strong>可以通过评测了解模型的能力边界，并提升模型的质量。</li>
+<li>在法律、医疗、社会安全等领域，我们需要一个好的评测方式来确定大模型是否适用于相关场景。</li>
+</ul>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F4d16d101-a5c5-4b19-8cc3-a6dad588ae89%2FUntitled.png?table=block&amp;id=e8686695-bab2-45cd-92da-51073fb26e21&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<p>❓ <strong>需要测什么</strong></p>
+<ul>
+<li><strong>传统NLP任务：</strong></li>
+</ul>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2Fb20bfc26-a1c5-434a-9f94-370a9cff558d%2FUntitled.png?table=block&amp;id=574e1236-28ca-47b2-abde-7a2747434643&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<ul>
+<li><strong>大语言模型：</strong>比如，知识，语言，理解，推理，长文本生成，Agent使用Tools的能力，情感认知，以及垂直领域的专业知识问答等领域。</li>
+</ul>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F0c46aefc-0151-47fa-b428-ecc41229e35d%2FUntitled.png?table=block&amp;id=7d1bc1e9-7669-4d17-b299-4eb7a8a43c4d&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<p>❓ <strong>如何测评大语言模型</strong></p>
+<ul>
+<li>基座模型：在评测的时候要加一些prompt instruct</li>
+<li>对话模型：通过人类对话的方式进行评测。</li>
+</ul>
+<blockquote>
+<p>评测分为客观评测和主观评测。</p>
+</blockquote>
+<ul>
+<li><strong>客观评测</strong>：通过正则表达式提取回答，统计正确率（问答、多选、判断等）。</li>
+<li><strong>主观测评</strong>：针对于创作类的题目，用模型来评价模型。比如用GPT4作为裁判，代替人类对模型做出评价。</li>
+</ul>
+<p>👉 <strong>大模型已有评测框架 VS OpenCompass</strong></p>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F1f490bfa-e2a0-405d-852d-62024179eabf%2FUntitled.png?table=block&amp;id=a2ea387e-cdbc-4091-831f-34d392aceb89&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F7da7bbc0-34db-410b-b54f-703f09c8bcf6%2FUntitled.png?table=block&amp;id=6e892498-eaee-4943-8456-3518607a0f9e&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=1950&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<h2 id="二、OpenCompass开源评测平台架构"><a href="#二、OpenCompass开源评测平台架构" class="headerlink" title="二、OpenCompass开源评测平台架构"></a>二、OpenCompass开源评测平台架构</h2><p>可以支持很多主流模型，对OC的评测流水线进行了设计，OC现在还在对多模态模型的评测进行探索，在垂直领域，如法律领域提供了LawBench，在医疗领域提供了MedBench。</p>
+<p>对用户的开发、使用也比较友好。支持对开源模型和API模型进行测试，也支持自定义模型的测试。集成了100多个数据集。测试的时候也进行了推理的优化。支持评测任务的切分，支持高效完成评测。</p>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2Fbb18f2c1-cc6e-4c05-b4f9-03c34fa6d486%2FUntitled.png?table=block&amp;id=c5f8a017-9b97-430e-98f6-3cf67dfcf61e&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=1830&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F0f8d2f12-ddeb-4ad9-8cfe-54d9b66b0f88%2FUntitled.png?table=block&amp;id=1478c889-cf18-4e39-9503-756b96b7b227&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=2000&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<p><img src="https://broadleaf-gemini-274.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc79bd034-8c99-48fa-85d9-e28d53b85138%2F60e768ac-0922-4189-8344-5ee83953d246%2FUntitled.png?table=block&amp;id=ae88c142-cbca-42b9-9b4e-53dfa19206d1&amp;spaceId=c79bd034-8c99-48fa-85d9-e28d53b85138&amp;width=1910&amp;userId=&amp;cache=v2" alt="Untitled"></p>
+<blockquote>
+<p>大模型测试框架面临挑战，如测试集数据混入训练集，导致数据污染和准确率虚高。需要开发测试数据污染工具。</p>
+</blockquote>
+<h2 id="三、OpenCompass实战"><a href="#三、OpenCompass实战" class="headerlink" title="三、OpenCompass实战"></a>三、OpenCompass实战</h2><p>在OpenCompass文件夹里，config文件里不同的模型评测设置，指定好数据集和模型，设置好相关的参数就能进行评测</p>
+<ul>
+<li><p>分片操作：同时推理多个模型(SizePartitioner)</p>
+</li>
+<li><p>其他命令：—reuse（断点续存） —debug（在终端print）</p>
+<p><strong>SUMMARY: <code>OpenCompass</code></strong>其实很简单，运行<code>run.py</code>文件就可以对模型进行测评，在命令行中进行指定模型路径等，也可以写一个<code>config</code>文件，在里面指定模型models、数据集datasets。</p>
+</li>
+</ul>
 
         
       </div>
@@ -316,25 +345,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/poster/da5283fb.html"
-      title="lesson4-XTuner 大模型单卡低成本微调实战"
+      href="/poster/dc43b579.html"
+      title="lesson6作业"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        lesson4-XTuner 大模型单卡低成本微调实战
+        lesson6作业
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/poster/f4a87016.html"
-      title="2809-使数组和小于等于 x 的最少时间"
+      href="/poster/4d800ade.html"
+      title="lesson5_LMDeploy 的量化和部署"
      >
 
     <p class="title-text">
       
-        2809-使数组和小于等于 x 的最少时间
+        lesson5_LMDeploy 的量化和部署
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
