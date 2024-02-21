@@ -161,7 +161,7 @@
       
         <a class="archive-link" href="/archives/2024/02 ">
           February 2024 
-          <div class="archive-count">6 </div>
+          <div class="archive-count">7 </div>
         </a>
       
         <a class="archive-link" href="/archives/2024/01 ">
@@ -184,6 +184,12 @@
     <div class="widget">
       <h3 class="widget-title">Recent Posts</h3>
       <ul>
+        
+          <a class="recent-link" href="/poster/edabafe4.html" title="lesson5作业" >
+            <div class="recent-link-text">
+              lesson5作业
+            </div>
+          </a>
         
           <a class="recent-link" href="/poster/dc43b579.html" title="lesson6作业" >
             <div class="recent-link-text">
@@ -209,12 +215,6 @@
             </div>
           </a>
         
-          <a class="recent-link" href="/poster/290cb30.html" title="25. K 个一组翻转链表" >
-            <div class="recent-link-text">
-              25. K 个一组翻转链表
-            </div>
-          </a>
-        
       </ul>
     </div>
   </div>
@@ -225,6 +225,90 @@
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-lesson5作业" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/poster/edabafe4.html">lesson5作业</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-02-21T11:21:00.000Z" itemprop="datePublished">2024-02-21</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            543 words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A5/" rel="tag">书生浦语大模型实战营</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              基础作业使用 LMDeploy 以本地对话、网页Gradio、API服务中的一种方式部署 InternLM-Chat-7B 模型，生成 300 字的小故事（需截图）
+1 环境配置
+设置开发机
+创建虚拟环境
+12bashconda create -n Lmdeploy --clone /share/conda_envs/internlm-base
+然后使用以下命令激活环境
+1conda activate Lmdeploy
+
+下载imdeploy
+123pip install packagingpip install /root/share/wheels/flash_attn-2.4.2+cu118torch2.0cxx11abiTRUE-cp310-cp310-linux_x86_64.whlpip install &#x27;lmdeploy[all]==v0.1.0&#x27;
+
+
+2 服务部署模型转换离线转换：指定模型名称、模型路径，转换为turbomind需要的格式
+1lmdeploy convert internlm-chat-7b  /root/share/temp/m...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/poster/edabafe4.html" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
    
 
 
@@ -437,7 +521,7 @@ LLM在不同场景中需要不同的评测方式。
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            17k words 
+            6.3k words 
           </div>
         </div>
         
@@ -448,57 +532,23 @@ LLM在不同场景中需要不同的评测方式。
         
           <div class="truncate-text">
             
-              LMDeploy 的量化和部署
+              Lecture5 LMDeploy大模型量化部署实践 在Lecture5中，我们首先深入了解了大模型的特点，包括其庞大的规模以及在部署过程中面临的挑战。接着，我们详细学习了LMDeploy框架的三个核心功能，分别是轻量化、推理引擎TurboMind和服务。此外，我们还进行了实际的安装、部署和量化操作，以加深对这些概念的理解和应用。
+课前的一些问题~
+什么是LMDeploy？
+LMDeploy是大语言模型在英伟达设备上部署的全流程方案。包括模型轻量化、推理和服务。（还没有涉及到移动端），项目地址
+什么是量化？为什么要量化？
+显存降低了，存储空间增多了，同样的设备下能够容纳更多，提高速度。
+一、大模型部署背景 什么是模型部署？
 
+定义：将训练好的模型，在特定的硬软件环境中启动运行起来，能够接收一定的输入并返回一定的输出。
+需要考虑模型的压缩和硬件的加速
+大模型特点：
 
-1 环境配置
-2 服务部署
-2.1 模型转换
-2.1.1 在线转换
-2.1.2 离线转换
+消耗显存内存大：大模型的参数量很大；需要token by token，占用显存很大
 
-
-2.2  TurboMind 推理+命令行本地对话
-2.3 TurboMind推理+API服务
-2.4 网页 Demo 演示
-2.4.1 TurboMind 服务作为后端
-2.4.2 TurboMind 推理作为后端
-
-
-2.5 TurboMind 推理 + Python 代码集成
-2.6 这么多，头秃，有没有最佳实践
-2.6.1 方案实践
-2.6.2 模型配置实践
-
-
-
-
-3 模型量化
-3.1 KV Cache 量化
-3.1.1 量化步骤
-3.1.2 量化效果
-
-
-3.2 W4A16 量化
-3.2.1 量化步骤
-3.2.2 量化效果
-
-
-3.3 最佳实践
-
-
-参考资料
-附录1：TritonServer 作为推理引擎
-TritonServer环境配置
-TritonServer推理+API服务
-TritonServer 服务作为后端
-
-
-
-
-1 环境配置首先我们可以使用 vgpu-smi 查看显卡资源使用情况。
-
-大家可以使用系统给的 vscode 进行...
+动态shape：请求数不确定，token逐个生成且数量不定
+结构简单：transformer结构，大部分是decoder-only
+...
             
           </div>
         
@@ -949,85 +999,6 @@ TritonServer 服务作为后端
     <a class="right-panel  non-pic  "
       
       href="/poster/28e988a7.html" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-   
-
-
-<article id="post-lesson4-XTuner-大模型单卡低成本微调实战" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/poster/da5283fb.html">lesson4-XTuner 大模型单卡低成本微调实战</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-01-20T05:26:38.000Z" itemprop="datePublished">2024-01-20</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            12k words 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A5/" rel="tag">书生浦语大模型实战营</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              在lesson3中，我们主要学习了两种大模型的开发范式，并详细学习了其中的RAG。本节课中，我们主要学习第二种范式，Finetune，并使用XTuner基于InternLM进行单卡微调。在普通的学习中，LLM没办法很好的应用于具体的实际和板块，因此需要微调来定制。对模型进行微调有两种策略，增加数据集和指令微调。XTuner是打包好的微调工具箱，它的微调原理是LoRA&amp;QLoRA，能够减少显存占用，使开发者专注数据内容而不是格式。
-XTuner概述FinetuneFinetune是大模型常见的两种范式之一，它的核心：在已有数据集上微调
-
-可以进行更多个性化微调，以满足用户需求。
-需要在新的数据集上进行训练，这可能会导致成本上升。然而，这也意味着模型可以更好地适应不断变化的环境。
-需要注意的是，由于训练成本较高，模型的更新可能不是实时的，但我们可以定期进行更新以确保其性能始终保持在最佳状态。
-
-LLMLLM就是大语言模型的统称。我们知道，LangChain封装了很多组件，通过将这些组件组合，一个chain能够封装一系列的LLM操作。
-XTunerXTuner是打包好的微调工具...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/poster/da5283fb.html" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
